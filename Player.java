@@ -9,6 +9,7 @@ public class Player
     int playerStrength;
     int playerDexterity;
     int playerAccuracy;
+    int playerArmor;
     int playerLevel;
     
     Player(String username)
@@ -17,9 +18,10 @@ public class Player
         experience = 0;
         playerMaxHealth = 15;
         playerHealth = 15;
-        playerStrength = 1;
-        playerDexterity = 1;
-        playerAccuracy = 1;
+        playerStrength = 0;
+        playerDexterity = 0;
+        playerAccuracy = 0;
+        playerArmor = 0;
         playerLevel = 0;
     }
 

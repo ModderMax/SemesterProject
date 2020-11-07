@@ -11,6 +11,13 @@ class text extends JFrame implements ActionListener {
     static JTextField text0 = new JTextField(10);
     static text type0 = new text();
 
+    /**
+     * Main method
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void main(String[] args) {
 
         // Schedule a job for the event-dispatching thread:
@@ -22,11 +29,25 @@ class text extends JFrame implements ActionListener {
         });
     }
 
+    /**
+     * constructor for making an active listener
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     text() 
     {
 
     }
 
+    /**
+     * Method for setting up the JFrame
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void menu() {
         // Create and set up the window.
         JFrame frame = new JFrame("Super Cool Game");
@@ -41,6 +62,13 @@ class text extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Method for setting up the JPanel
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(null);
 
@@ -67,28 +95,33 @@ class text extends JFrame implements ActionListener {
         label0.setBounds(195, 370 + insets.top, size.width + 200, size.height + 60);
     }
 
+    /**
+     * Method for taking input from the active listener
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public void actionPerformed(ActionEvent type0) 
     {
         String s = type0.getActionCommand();
         if (s.equals("Select Username")) 
         {
-            // set the text of the label to the text of the field
-            String input = text0.getText();
-            input += "                ";
-            input = input.substring(0, 15);
-            input = input.trim();
-            label0.setText(input + " is your current username");
-            Player.setUsername(input);
-            // set the text of field to blank
-            text0.setText("");
+            String input = text0.getText(); // gets the input from the field and puts it in a variable
+            input += "                "; // adds 16 spaces to the string to avoid error in taking the substring
+            input = input.substring(0, 15); // takes only the first 16 characters to avoid super long names
+            input = input.trim(); // trims any extra spaces
+            label0.setText(input + " is your current username"); // lets the player know what their username will be
+            Player.setUsername(input); //sets the username to the inputted username
+            text0.setText(""); // set the text of the input field to blank
         } 
         else if (s.equals("Exit")) 
         {
-            System.exit(0);
+            System.exit(0); // exits the program
         } 
         else if (s.equals("Start Game!")) 
         {
-            Event.introduction();
+            Event.introduction0(); // starts the game
         }
         else if (s.equals("Ok"))
         {
@@ -100,7 +133,8 @@ class text extends JFrame implements ActionListener {
         }
     }
 
-    public static void addItem(String name, int damage, String effect, int effectStrength, int special) {
+    public static void addItem(String name, int damage, String effect, int effectStrength, int special) 
+    {
 
     }
 }
