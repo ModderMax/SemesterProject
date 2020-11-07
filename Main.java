@@ -15,9 +15,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * text class for identifying the active listener
+ * contains the main method to run the program
+ *
+ * Date created: 11/7/2020
+ * 
+ * @author Maxwell Brown
+ * @author
+ */
+
 class text extends JFrame implements ActionListener {
     private static final long serialVersionUID = -2421597325560762362L;
-
+  
+    static Player player;
     static JButton button0 = new JButton();
     static JButton button1 = new JButton("Exit");
     static JButton button2 = new JButton("Start Game!");
@@ -141,8 +152,8 @@ class text extends JFrame implements ActionListener {
             input += "              L"; // adds spaces to the string to avoid error in taking the substring and set the username to 'L' if nothing is entered
             input = input.substring(0, 15); // takes only the first 16 characters to avoid super long names
             input = input.trim(); // trims any extra spaces
-            label0.setText(input + " is your current username"); // lets the player know what their username will be
-            Player.setUsername(input); //sets the username to the inputted username
+            player = new Player(input); // makes a new player with the inputted username
+            label0.setText(player.getUsername() + " is your current username"); // lets the player know what their username will be
             text0.setText(""); // set the text of the input field to blank
         } 
         else if (s.equals("Exit")) 

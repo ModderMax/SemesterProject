@@ -15,7 +15,7 @@ public class Event
         switch(Event.currentEventId)
         {
             case 0:
-            text.label0.setText("A Perilous journey awaits you...");
+            introduction1();
             break;
         }
 
@@ -46,14 +46,11 @@ public class Event
 
     public static void introduction1()
     {
-        Event.currentEventId = 0;
-        text.button1.setEnabled(true);
-        text.button1.setVisible(true);
-        text.button3.setEnabled(true);
-        text.button3.setVisible(true);
-        text.text0.setEnabled(true);
-        text.text0.setVisible(true);
-        text.label0.setText("Welcome to the dungeon.");
-        text.button2.setText("Ok");
+        Encounter.tutorial();
+    }
+
+    public static void inventory()
+    {
+        
     }
 }

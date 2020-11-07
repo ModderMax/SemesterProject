@@ -1,16 +1,18 @@
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class Player 
 {
+    static ArrayList<Item> inventory;
     static String username;
-    int playerMaxHealth;
-    int playerHealth;
-    int experience;
-    int playerStrength;
-    int playerDexterity;
-    int playerAccuracy;
-    int playerArmor;
-    int playerLevel;
+    static int playerMaxHealth;
+    static int playerHealth;
+    static int experience;
+    static int playerStrength;
+    static int playerDexterity;
+    static int playerAccuracy;
+    static int playerArmor;
+    static int playerLevel;
     
     Player(String username)
     {
@@ -81,8 +83,25 @@ public class Player
         
     }
 
-    public static void setUsername(String username) 
+    public String getHealthString()
+    {
+        int num = Player.playerHealth;
+        String out = "";
+        do
+        {
+            out += "❤ ";
+            num --;
+        }while(num > 0);
+        return out;
+    }
+
+    public void setUsername(String username) 
     {
         Player.username = username;
+    }
+
+    public String getUsername() 
+    {
+        return username;
     }
 }
