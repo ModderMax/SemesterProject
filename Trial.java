@@ -14,4 +14,9 @@ public class Trial
     {
         
     }
+
+    public static void buttonClicker()
+    {
+        
+    }
 }
