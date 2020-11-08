@@ -29,10 +29,10 @@ public class ChangeUI
     {
         text.button0.setText(b0);
         text.button1.setText(b1);
-        text.button1.setText(b2);
-        text.button1.setText(b3);
-        text.button1.setText(b4);
-        text.button1.setText(b5);
+        text.button2.setText(b2);
+        text.button3.setText(b3);
+        text.button4.setText(b4);
+        text.button5.setText(b5);
         text.label0.setText(l0);
         text.label1.setText(l1);
         text.label2.setText(l2);
