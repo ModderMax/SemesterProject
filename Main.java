@@ -36,11 +36,12 @@ class text extends JFrame implements ActionListener {
     static JButton button4 = new JButton();
     static JButton button5 = new JButton();
     static JLabel label0 = new JLabel("Enter a UserName");
-    static JLabel label1 = new JLabel("");
-    static JLabel label2 = new JLabel("");
+    static JLabel label1 = new JLabel(" ");
+    static JLabel label2 = new JLabel(" ");
     static JTextField text0 = new JTextField(10);
     static text type0 = new text();
     static JPanel pane =  new JPanel();
+    static Entity entity = new Entity("", 0, 0, 0, 0, 0);
 
     /**
      * Main method
@@ -114,6 +115,7 @@ class text extends JFrame implements ActionListener {
         // adds components to the panel
         pane.add(label0);
         pane.add(label1);
+        pane.add(label2);
         pane.add(text0);
         pane.add(button0);
         pane.add(button1);
