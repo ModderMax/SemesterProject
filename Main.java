@@ -91,6 +91,7 @@ class text extends JFrame implements ActionListener {
         // Size and display the window.
         Insets insets = frame.getInsets();
         frame.setSize(Config.getxResolution() + insets.left + insets.right, Config.getyResolution() + insets.top + insets.bottom);
+        frame.setLocationRelativeTo(null);  
         frame.setVisible(true);
     }
 
@@ -135,7 +136,7 @@ class text extends JFrame implements ActionListener {
                                label1.getPreferredSize().width, label1.getPreferredSize().height, 0, 0, 
                                label2.getPreferredSize().width, label2.getPreferredSize().height, 0, 0,
                                text0.getPreferredSize().width, text0.getPreferredSize().height, 190, 420);
-        ChangeUI.enableAll(false, true, true, true, false, false, true, true, false, false);
+        ChangeUI.enableAll(false, true, false, true, false, false, true, true, false, false);
     }
 
     /**
@@ -157,6 +158,7 @@ class text extends JFrame implements ActionListener {
             player = new Player(input); // makes a new player with the inputted username
             label0.setText(player.getUsername() + " is your current username"); // lets the player know what their username will be
             text0.setText(""); // set the text of the input field to blank
+            ChangeUI.enableAll(false, true, true, true, false, false, true, true, false, false);
         } 
         else if (s.equals("Exit")) 
         {
