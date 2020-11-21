@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * Event class for handling events that take place outside of fights and trials.
  *
@@ -49,9 +51,15 @@ public class Event
         Encounter.tutorial();
     }
 
-    public static void inventory()
+    public static void openInventory()
     {
-        
+        System.out.println("before update");
+        System.out.println("after update");
+        Object[] options = text.getItemArray();
+        System.out.println("after object created");
+        int answer = JOptionPane.showOptionDialog(null, "Select which weapon to attack with", "Calculator", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.DEFAULT_OPTION, null, options, options[0]);
     }
+
 
 }

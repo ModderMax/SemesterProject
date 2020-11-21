@@ -10,17 +10,64 @@ public class Generator
         return rand.nextInt(disparity) + num1;
     }
 
-    public static void randomLoot() {
+    public static void randomRarity()
+    {
         int randomInt = rand.nextInt(100);
-
-        //Flame Sword
-        if(randomInt == 0)
+        if(randomInt <= 9)
         {
-            text.addItem("Flame Sword", 5, "Dexterity", 1, 0);
+            randomLegendary();
         }
         else
         {
-            System.out.println("yeet");
+            if(randomInt <= 25)
+            {
+                randomUnique();
+            }
+            else
+            {
+                if(randomInt <= 55)
+                {
+                    randomRare();
+                }
+                else
+                {
+                    randomCommon();
+                }
+            }
         }
+    }
+    
+    public static void randomLegendary() 
+    {
+        int randomInt = rand.nextInt(100);
+
+        switch(randomInt)
+        {
+            case 0:
+            Item.theComicallyLargeSpoon();
+            break;
+        }
+    }
+
+    public static void randomUnique()
+    {
+        int randomInt = rand.nextInt(100);
+
+        switch(randomInt)
+        {
+            case 0:
+            Item.energySword();
+            break;
+        }
+    }
+
+    public static void randomRare()
+    {
+
+    }
+
+    public static void randomCommon()
+    {
+
     }
 }

@@ -14,6 +14,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * text class for identifying the active listener
@@ -25,7 +26,8 @@ import javax.swing.*;
  * @author
  */
 
-class text extends JFrame implements ActionListener {
+class text extends JFrame implements ActionListener 
+{
     private static final long serialVersionUID = -2421597325560762362L;
   
     static Player player;
@@ -42,6 +44,8 @@ class text extends JFrame implements ActionListener {
     static text type0 = new text();
     static JPanel pane =  new JPanel();
     static Entity entity = new Entity("", 0, 0, 0, 0, 0);
+    static ArrayList<Item> inventory = new ArrayList();
+    static ArrayList<String> itemNames = new ArrayList();
 
     /**
      * Main method
@@ -176,10 +180,21 @@ class text extends JFrame implements ActionListener {
         {
             Event.rejectOp();
         }
+        else if(s.equals("Attack"))
+        {
+            Event.openInventory();
+        }
     }
 
-    public static void addItem(String name, int damage, String effect, int effectStrength, int special) 
+    public static Object[] getItemArray() 
     {
-
+        String slot0 = inventory.get(0).getName();
+        String slot1 = inventory.get(1).getName();
+        String slot2 = inventory.get(2).getName();
+        String slot3 = inventory.get(3).getName();
+        String slot4 = inventory.get(4).getName();
+        String slot5 = inventory.get(5).getName();
+        Object[] slots = {slot0, slot1, slot2, slot3, slot4, slot5};
+        return slots;
     }
 }
