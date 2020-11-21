@@ -69,8 +69,73 @@ public class Event
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
                 text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
-                System.out.println(damage);
-            }   
+            }
+            break;
+            case 1:
+            if(Generator.doesHit(text.inventory.get(1).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(1).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+            }
+            break; 
+            case 2:
+            if(Generator.doesHit(text.inventory.get(2).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(2).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+            }
+            break;
+            case 3:
+            if(Generator.doesHit(text.inventory.get(3).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(3).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+            }
+            break; 
+            case 4:
+            if(Generator.doesHit(text.inventory.get(4).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(4).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+            }
+            break; 
+            case 5:
+            if(Generator.doesHit(text.inventory.get(5).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(5).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+            }
+            break; 
         }
     }
 
