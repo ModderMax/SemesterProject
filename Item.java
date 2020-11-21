@@ -70,6 +70,11 @@ public class Item
 
     }
 
+    public static void punch()
+    {
+        text.inventory.add(new Item(1, 0, 0, 100, "Fist"));
+    }
+
     public int getAccuracy() 
     {
         return accuracy;

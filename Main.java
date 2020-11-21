@@ -44,8 +44,8 @@ class text extends JFrame implements ActionListener
     static text type0 = new text();
     static JPanel pane =  new JPanel();
     static Entity entity = new Entity("", 0, 0, 0, 0, 0);
-    static ArrayList<Item> inventory = new ArrayList();
-    static ArrayList<String> itemNames = new ArrayList();
+    static ArrayList<Item> inventory = new ArrayList(6);
+    static ArrayList<String> itemNames = new ArrayList(6);
 
     /**
      * Main method
@@ -56,6 +56,10 @@ class text extends JFrame implements ActionListener
      */
     public static void main(String[] args) {
 
+        for (int i = 0; i < 9; i++)
+        {
+            Item.punch();
+        }
         // Schedule a job for the event-dispatching thread:
         // creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -182,7 +186,7 @@ class text extends JFrame implements ActionListener
         }
         else if(s.equals("Attack"))
         {
-            Event.openInventory();
+            Event.attackInventory();
         }
     }
 

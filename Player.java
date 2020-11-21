@@ -104,4 +104,14 @@ public class Player
     {
         return username;
     }
+
+    public int getPlayerAccuracy() 
+    {
+        return playerAccuracy;
+    }
+    
+    public int getPlayerDexterity() 
+    {
+        return playerDexterity;
+    }
 }

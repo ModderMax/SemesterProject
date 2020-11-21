@@ -51,14 +51,27 @@ public class Event
         Encounter.tutorial();
     }
 
-    public static void openInventory()
+    public static void attackInventory()
     {
-        System.out.println("before update");
-        System.out.println("after update");
         Object[] options = text.getItemArray();
-        System.out.println("after object created");
         int answer = JOptionPane.showOptionDialog(null, "Select which weapon to attack with", "Calculator", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.DEFAULT_OPTION, null, options, options[0]);
+        switch(answer)
+        {
+            case 0:
+            if(Generator.doesHit(text.inventory.get(0).getAccuracy(), true))
+            {
+                int damage = text.entity.getEntityArmor() - text.inventory.get(0).getPiercing();
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
+                damage = text.inventory.get(0).getDamage() - damage;
+                text.entity.affectEntityHealth(damage);
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                System.out.println(damage);
+            }   
+        }
     }
 
 

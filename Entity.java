@@ -19,6 +19,15 @@ public class Entity
         this.entityArmor = entityArmor;
     }
 
+    public void affectEntityHealth(int amount)
+    {
+        this.entityHealth = this.entityHealth - amount;
+        if(this.entityHealth > this.entityMaxHealth)
+        {
+            this.entityHealth = this.entityMaxHealth;
+        }
+    }
+
     public String getEntityName() 
     {
         return entityName;

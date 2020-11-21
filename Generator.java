@@ -4,6 +4,38 @@ public class Generator
 {
     static Random rand = new Random();
 
+    public static boolean doesHit(int itemToHit, boolean isPlayer)
+    {
+        if(isPlayer)
+        {
+            int x = text.player.getPlayerAccuracy() - text.entity.getEntityDexterity();
+            int randomInt = rand.nextInt(11);
+            int y = 6 + x + itemToHit;
+            if(y > randomInt)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            int x = text.entity.getEntityAccuracy() - text.player.getPlayerDexterity();
+            int randomInt = rand.nextInt(11);
+            int y = 6 + x;
+            if(y > randomInt)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+
     public static int randomBetween(int num1, int num2)
     {
         int disparity = num2 - num1 + 1;
