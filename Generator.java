@@ -17,7 +17,7 @@ public class Generator
             }
             else
             {
-                return true;
+                return false;
             }
         }
         else
@@ -31,7 +31,7 @@ public class Generator
             }
             else
             {
-                return true;
+                return false;
             }
         }
     }

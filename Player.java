@@ -3,20 +3,19 @@ import java.util.ArrayList;
 
 public class Player 
 {
-    static ArrayList<Item> inventory;
-    static String username;
-    static int playerMaxHealth;
-    static int playerHealth;
-    static int experience;
-    static int playerStrength;
-    static int playerDexterity;
-    static int playerAccuracy;
-    static int playerArmor;
-    static int playerLevel;
-    
-    Player(String username)
-    {
-        Player.username = username;
+    ArrayList<Item> inventory;
+    String username;
+    int playerMaxHealth;
+    int playerHealth;
+    int experience;
+    int playerStrength;
+    int playerDexterity;
+    int playerAccuracy;
+    int playerArmor;
+    int playerLevel;
+
+    Player(String username) {
+        this.username = username;
         experience = 0;
         playerMaxHealth = 15;
         playerHealth = 15;
@@ -27,77 +26,79 @@ public class Player
         playerLevel = 0;
     }
 
-    public void checkLevelup()
-    {
-        switch(playerLevel)
-        {
+    public void checkLevelup() {
+        switch (playerLevel) {
             case 1:
-            if(experience > 100)
-            {
-                levelUp();
-            }
+                if (experience > 100) {
+                    levelUp();
+                }
         }
     }
 
-    public void levelUp()
-    {
-        playerLevel ++;
-        Object[] options = { "Health", "Strength", "Dexterity", "Accuracy"};
-        int answer = JOptionPane.showOptionDialog(null, "What proficiency do you want to improve?", "Stat Increase", JOptionPane.DEFAULT_OPTION,
-        JOptionPane.DEFAULT_OPTION, null, options, options[0]);
+    public void levelUp() {
+        playerLevel++;
+        Object[] options = { "Health", "Strength", "Dexterity", "Accuracy" };
+        int answer = JOptionPane.showOptionDialog(null, "What proficiency do you want to improve?", "Stat Increase",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, options, options[0]);
 
-        switch (answer) 
-        {
-           case 0:
+        switch (answer) {
+            case 0:
                 playerMaxHealth = playerMaxHealth + 5;
                 playerHealth = playerMaxHealth;
                 break;
             case 1:
-                playerStrength ++;
+                playerStrength++;
                 playerHealth = playerMaxHealth;
                 break;
             case 2:
-                playerDexterity ++;
+                playerDexterity++;
                 playerHealth = playerMaxHealth;
                 break;
             case 3:
-                playerAccuracy ++;
+                playerAccuracy++;
                 playerHealth = playerMaxHealth;
                 break;
-            default :
-            System.out.println("Input Error: Selection not recieved");
-            System.exit(0);
+            default:
+                System.out.println("Input Error: Selection not recieved");
+                System.exit(0);
         }
     }
 
-    public void checkDeath()
-    {
-        if(playerHealth >= 0)
-        {
+    public void checkDeath() {
+        if (playerHealth >= 0) {
             death();
         }
     }
 
-    public void death()
+    public void death() {
+
+    }
+
+    public void affectPlayerHealth(int amount) 
     {
-        
+        playerHealth = playerHealth - amount;
+        if(playerHealth > playerMaxHealth)
+        {
+            playerHealth = playerMaxHealth;
+        }
     }
 
     public String getHealthString()
     {
-        int num = Player.playerHealth;
+        int num = playerHealth;
         String out = "";
         do
         {
             out += "❤ ";
             num --;
         }while(num > 0);
+        out += " (" + text.player.getPlayerHealth() + ")";
         return out;
     }
 
     public void setUsername(String username) 
     {
-        Player.username = username;
+        this.username = username;
     }
 
     public String getUsername() 
@@ -113,5 +114,10 @@ public class Player
     public int getPlayerDexterity() 
     {
         return playerDexterity;
+    }
+
+    public int getPlayerHealth() 
+    {
+        return playerHealth;
     }
 }

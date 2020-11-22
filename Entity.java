@@ -28,6 +28,42 @@ public class Entity
         }
     }
 
+    public String getHealthString()
+    {
+        int num = text.entity.getEntityHealth();
+        String out = "";
+        do
+        {
+            out += "❤ ";
+            num --;
+        }while(num > 0);
+        return out;
+    }
+
+    public boolean isAlive()
+    {
+        if(entityHealth <= 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static void attack()
+    {
+        if(Generator.doesHit(0, false))
+        {
+            text.player.affectPlayerHealth(text.entity.getEntityStrength());
+            System.out.println(text.player.getHealthString());
+            System.out.println(text.player.getPlayerHealth());
+        }
+        text.player.checkDeath();
+        text.label0.setText(text.player.getUsername() + ": " + text.player.getHealthString());
+    }
+
     public String getEntityName() 
     {
         return entityName;
@@ -98,7 +134,7 @@ public class Entity
     {
         text.entity.setEntityName("Slime");
         text.entity.setEntityHealth(5);
-        text.entity.setEntityStrength(0);
+        text.entity.setEntityStrength(1);
         text.entity.setEntityDexterity(-1);
         text.entity.setEntityAccuracy(0);
         text.entity.setEntityArmor(-1);
@@ -108,7 +144,7 @@ public class Entity
     {
         text.entity.setEntityName("Wolf");
         text.entity.setEntityHealth(7);
-        text.entity.setEntityStrength(0);
+        text.entity.setEntityStrength(1);
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(2);
         text.entity.setEntityArmor(0);
@@ -118,7 +154,7 @@ public class Entity
     {
         text.entity.setEntityName("Dire Wolf");
         text.entity.setEntityHealth(10);
-        text.entity.setEntityStrength(0);
+        text.entity.setEntityStrength(2);
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(0);

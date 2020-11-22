@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
 
 /**
  * Event class for handling events that take place outside of fights and trials.
@@ -31,7 +32,11 @@ public class Event
      */
     public static void rejectOp()
     {
-        System.out.println("yoink");
+        switch(Event.currentEventId)
+        {
+            case 1:
+            break;
+        }
     }
     
     public static void introduction0() {
@@ -54,7 +59,7 @@ public class Event
     public static void attackInventory()
     {
         Object[] options = text.getItemArray();
-        int answer = JOptionPane.showOptionDialog(null, "Select which weapon to attack with", "Calculator", JOptionPane.DEFAULT_OPTION,
+        int answer = JOptionPane.showOptionDialog(null, "Select which weapon to attack with", "Attack", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.DEFAULT_OPTION, null, options, options[0]);
         switch(answer)
         {
@@ -66,9 +71,13 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
             break;
             case 1:
@@ -79,9 +88,13 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
             break; 
             case 2:
@@ -92,9 +105,13 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
             break;
             case 3:
@@ -105,9 +122,13 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
             break; 
             case 4:
@@ -118,9 +139,13 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
             break; 
             case 5:
@@ -131,12 +156,41 @@ public class Event
                 {
                     damage = 0;
                 }
+                if(text.entity.getEntityArmor() < 0)
+                {
+                    damage = damage + text.entity.getEntityArmor();
+                }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth());
+                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
             }
-            break; 
+            break;
         }
+        Entity.attack();
+    }
+
+    public static void information()
+    {
+        DecimalFormat df = new DecimalFormat("0.00");
+        double x = text.player.getPlayerAccuracy() - text.entity.getEntityDexterity();
+        double y = text.entity.getEntityAccuracy() - text.player.getPlayerDexterity();
+        double chance = x + 6;
+        double chances = y + 6;
+        chance = chance / 11;
+        chances = chances / 11;
+        chance = chance * 100;
+        chances = chances * 100;
+        String out = df.format(chance);
+        String prnt = df.format(chances);
+        JOptionPane.showMessageDialog(null, "Entity: " + text.entity.getEntityName() +
+                                         "\nHealth: " + text.entity.getEntityHealth() + "/" + text.entity.getEntityMaxHealth() + 
+                                         "\nAccuracy: " + text.entity.getEntityAccuracy() + 
+                                         "\nAttack: " + text.entity.getEntityStrength() + 
+                                         "\nArmor: " + text.entity.getEntityArmor() + 
+                                         "\nDexterity: " + text.entity.getEntityDexterity() +
+                                         "\nChance to hit: " + out + "%" +
+                                         "\nChance to get hit: " + prnt + "%",
+                                         "Information", JOptionPane.DEFAULT_OPTION);
     }
 
 

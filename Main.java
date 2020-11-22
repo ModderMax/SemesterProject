@@ -45,7 +45,7 @@ class text extends JFrame implements ActionListener
     static JPanel pane =  new JPanel();
     static Entity entity = new Entity("", 0, 0, 0, 0, 0);
     static ArrayList<Item> inventory = new ArrayList(6);
-    static ArrayList<String> itemNames = new ArrayList(6);
+    static ArrayList<Item> collection = new ArrayList(6);
 
     /**
      * Main method
@@ -187,6 +187,10 @@ class text extends JFrame implements ActionListener
         else if(s.equals("Attack"))
         {
             Event.attackInventory();
+        }
+        else if(s.equals("Information"))
+        {
+            Event.information();
         }
     }
 
