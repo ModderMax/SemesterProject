@@ -5,61 +5,59 @@ public class Item
     private int piercing;
     private int durability;
     private String name;
-    private String rarity;
     
-    public Item(int damage, int accuracy, int piercing, int durability, String name, String rarity)
+    public Item(int damage, int accuracy, int piercing, int durability, String name)
     {
         this.name = name;
         this.damage = damage;
         this.accuracy = accuracy;
         this.piercing = piercing;
         this.durability = durability;
-        this.rarity = rarity;
     }
 
-    public static void hashSlingingSlashSingingSpatula() // Spongebob reference
+    public static void hashSlingingSlashSingingSpatula() // Spongebob reference; Rare
     {
-        Generator.held = new Item(5, 2, 1, 13, "Hash-Slinging-Slash-Singing Spatula", "Rare");
+        text.inventory.add(new Item(5, 2, 1, 13, "Hash-Slinging-Slash-Singing Spatula"));
     }
 
-    public static void theComicallyLargeSpoon() // Meme reference
+    public static void theComicallyLargeSpoon() // Meme reference; Legendary
     {
-        Generator.held = new Item(7, 2, 2, 20, "Comically-Large Spoon", "Legendary");
+        text.inventory.add(new Item(7, 2, 2, 20, "Comically-Large Spoon"));
     }
 
-    public static void energySword() // Halo reference
+    public static void energySword() // Halo reference; Unique
     {
-        Generator.held = new Item(8, 1, 4, 16, "Energy Sword", "Unique");
+        text.inventory.add(new Item(8, 1, 4, 16, "Energy Sword"));
     }
 
-    public static void actOfViolence() // Conan Exiles reference
+    public static void actOfViolence() // Conan Exiles reference; Legendary
     {
-        Generator.held = new Item(13, 0, 2, 17, "Act of Violence", "Legendary");
+        text.inventory.add(new Item(13, 0, 2, 17, "Act of Violence"));
     }
 
-    public static void bradleysStraightSaberOfWrath() // FMA: Brotherhood reference
+    public static void bradleysStraightSaberOfWrath() // FMA: Brotherhood reference; Legendary
     {
-        Generator.held = new Item(11, 4, 5, 21, "Bradley's Saber of Wrath", "Legendary");
+        text.inventory.add(new Item(11, 4, 5, 21, "Bradley's Saber of Wrath"));
     }
     
     public static void threeDimensionalManeuverGear() // AoT reference; Unique
     {
-        Generator.held = new Item(7, 7, 2, 10, "3-Dimensional Maneuver Gear", "Unique");
+        text.inventory.add(new Item(7, 7, 2, 10, "3-Dimensional Maneuver Gear"));
     }
 
     public static void charasKnife() // Undertale reference; Rare
     {
-        Generator.held = new Item(3, 9, 1, 14, "Chara's Knife", "Rare");
+        text.inventory.add(new Item(3, 9, 1, 14, "Chara's Knife"));
     }
 
     public static void masterSword() // Legend of Zelda reference; Unique
     {
-        Generator.held = new Item(12, 2, 0, 25, "3-Dimensional Maneuver Gear", "Unique");
+        text.inventory.add(new Item(12, 2, 0, 25, "3-Dimensional Maneuver Gear"));
     }
 
     public static void diamondSword() // Minecraft reference; Rare
     {
-        Generator.held = new Item(8, 0, 2, 16, "Diamond Sword", "Unique");
+        text.inventory.add(new Item(8, 0, 2, 16, "Diamond Sword"));
     }
 
     public static void fryingPan() // Common
@@ -74,7 +72,7 @@ public class Item
 
     public static void punch()
     {
-        text.inventory.add(new Item(100, 10, 0, 100, "Fist", "Common"));
+        text.inventory.add(new Item(1, 0, 0, 100, "Fist"));
     }
 
     public int getAccuracy() 
@@ -100,10 +98,5 @@ public class Item
     public String getName() 
     {
         return name;
-    }
-
-    public String getRarity() 
-    {
-        return rarity;
     }
 }

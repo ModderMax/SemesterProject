@@ -4,6 +4,8 @@
  * Project name: Semester Project - Text Based RPG
  * ---------------------------------------------------------------------------
  * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Creator's name and email:
+ * Creator's name and email:
  * Course:  CSCI 1250
  * Creation Date: 11/7/2020 
  * ---------------------------------------------------------------------------
@@ -41,10 +43,9 @@ class text extends JFrame implements ActionListener
     static JTextField text0 = new JTextField(10);
     static text type0 = new text();
     static JPanel pane =  new JPanel();
-    static Entity entity = new Entity("", 0, 0, 0, 0, 0, 0);
+    static Entity entity = new Entity("", 0, 0, 0, 0, 0);
     static ArrayList<Item> inventory = new ArrayList(6);
     static ArrayList<Item> collection = new ArrayList(6);
-    
 
     /**
      * Main method
