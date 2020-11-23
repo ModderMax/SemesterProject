@@ -7,8 +7,9 @@ public class Entity
     private int entityDexterity;
     private int entityAccuracy;
     private int entityArmor;
+    private int entityExp;
 
-    Entity(String entityName, int entityMaxHealth, int entityStrength, int entityDexterity, int entityAccuracy, int entityArmor)
+    Entity(String entityName, int entityMaxHealth, int entityStrength, int entityDexterity, int entityAccuracy, int entityArmor, int entityExp)
     {
         this.entityName = entityName;
         this.entityMaxHealth = entityMaxHealth;
@@ -17,6 +18,29 @@ public class Entity
         this.entityDexterity = entityDexterity;
         this.entityAccuracy = entityAccuracy;
         this.entityArmor = entityArmor;
+        this.entityExp = entityExp;
+    }
+
+    public static void kill()
+    {
+        Generator.randomRarity();
+        ChangeUI.enableAll(true, true, false, false, false, false, false, true, true, true);
+        ChangeUI.locationButton(120, 30, 120, 600,
+                                120, 30, 280, 600, 
+                                120, 30, 120, 600, 
+                                120, 30, 280, 600, 
+                                text.button4.getPreferredSize().width, text.button4.getPreferredSize().height, 100, 10, 
+                                text.button5.getPreferredSize().width, text.button5.getPreferredSize().height, 100, 10);
+        ChangeUI.locationField(500, text.label0.getPreferredSize().height + 30, 210, 500,
+                               500, text.label1.getPreferredSize().height, 220, 570,
+                               400, text.label2.getPreferredSize().height + 200, 40, 10,
+                               text.text0.getPreferredSize().width, text.text0.getPreferredSize().height, 190, 420);
+        ChangeUI.textAll("Pick Up", "Discard", "x", "y", "z", "a", "b",
+                            "<html>Loot:<br>" +
+                            "+ " + text.entity.getEntityExp() + " EXP earned<br>" + 
+                            "+ " + Generator.held.getName() + ", " + Generator.held.getRarity(),
+                            text.entity.getEntityName() + ": Dead",
+                            Config.graveTexture());
     }
 
     public void affectEntityHealth(int amount)
@@ -57,8 +81,6 @@ public class Entity
         if(Generator.doesHit(0, false))
         {
             text.player.affectPlayerHealth(text.entity.getEntityStrength());
-            System.out.println(text.player.getHealthString());
-            System.out.println(text.player.getPlayerHealth());
         }
         text.player.checkDeath();
         text.label0.setText(text.player.getUsername() + ": " + text.player.getHealthString());
@@ -99,6 +121,11 @@ public class Entity
         return entityArmor;
     }
 
+    public int getEntityExp() 
+    {
+        return entityExp;
+    }
+
     public void setEntityName(String entityName) 
     {
         this.entityName = entityName;
@@ -128,6 +155,11 @@ public class Entity
     public void setEntityArmor(int entityArmor) 
     {
         this.entityArmor = entityArmor;
+    }
+
+    public void setEntityExp(int entityExp) 
+    {
+        this.entityExp = entityExp;
     }
 
     public static void slime()
