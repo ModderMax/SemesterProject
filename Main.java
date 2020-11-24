@@ -4,8 +4,6 @@
  * Project name: Semester Project - Text Based RPG
  * ---------------------------------------------------------------------------
  * Creator's name and email: Maxwell Brown, max@nendal.com
- * Creator's name and email:
- * Creator's name and email:
  * Course:  CSCI 1250
  * Creation Date: 11/7/2020 
  * ---------------------------------------------------------------------------
@@ -43,9 +41,10 @@ class text extends JFrame implements ActionListener
     static JTextField text0 = new JTextField(10);
     static text type0 = new text();
     static JPanel pane =  new JPanel();
-    static Entity entity = new Entity("", 0, 0, 0, 0, 0);
+    static Entity entity = new Entity("", 0, 0, 0, 0, 0, 0);
     static ArrayList<Item> inventory = new ArrayList(6);
     static ArrayList<Item> collection = new ArrayList(6);
+    
 
     /**
      * Main method
@@ -157,40 +156,42 @@ class text extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent type0) 
     {
         String s = type0.getActionCommand();
-        if (s.equals("Select Username")) 
+        switch(s)
         {
-            String input = text0.getText(); // gets the input from the field and puts it in a variable
-            input += "              L"; // adds spaces to the string to avoid error in taking the substring and set the username to 'L' if nothing is entered
-            input = input.substring(0, 15); // takes only the first 16 characters to avoid super long names
-            input = input.trim(); // trims any extra spaces
-            player = new Player(input); // makes a new player with the inputted username
-            label0.setText(player.getUsername() + " is your current username"); // lets the player know what their username will be
-            text0.setText(""); // set the text of the input field to blank
-            ChangeUI.enableAll(false, true, true, true, false, false, true, true, false, false);
-        } 
-        else if (s.equals("Exit")) 
-        {
-            System.exit(0); // exits the program
-        } 
-        else if (s.equals("Start Game!")) 
-        {
-            Event.introduction0(); // starts the game
-        }
-        else if (s.equals("Ok"))
-        {
-            Event.confirmOp();
-        }
-        else if (s.equals("No"))
-        {
-            Event.rejectOp();
-        }
-        else if(s.equals("Attack"))
-        {
-            Event.attackInventory();
-        }
-        else if(s.equals("Information"))
-        {
-            Event.information();
+            case "Select Username":
+                String input = text0.getText(); // gets the input from the field and puts it in a variable
+                input += "              L"; // adds spaces to the string to avoid error in taking the substring and set the username to 'L' if nothing is entered
+                input = input.substring(0, 15); // takes only the first 16 characters to avoid super long names
+                input = input.trim(); // trims any extra spaces
+                player = new Player(input); // makes a new player with the inputted username
+                label0.setText(player.getUsername() + " is your current username"); // lets the player know what their username will be
+                text0.setText(""); // set the text of the input field to blank
+                ChangeUI.enableAll(false, true, true, true, false, false, true, true, false, false);
+            break;
+            case "Exit":
+                System.exit(0);
+            break;
+            case "Start Game!":
+                Event.introduction0();
+            break;
+            case "Ok":
+                Event.confirmOp();
+            break;
+            case "No":
+                Event.rejectOp();
+            break;
+            case "Attack":
+                Event.attackInventory();
+            break;
+            case "Information":
+                Event.information();
+            break;
+            case "Pick Up":
+                Event.pickUp();
+            break;
+            case "Discard":
+                Event.discard();
+            break;
         }
     }
 

@@ -10,9 +10,23 @@ import java.text.DecimalFormat;
  */
 public class Event
 {
-    private static int currentEventId; // for keeping track of what event is active for the sake of confirm and reject working properly.
+    static int currentEventId; // for keeping track of what event is active for the sake of confirm and reject working properly.
+    static int currentProgress; // for keeping track of when the final boss event should be called
 
 
+    public static void startEncounter()
+    {      
+        if(currentEventId == 0)
+        {
+            JOptionPane.showMessageDialog(null, "You have completed the tutorial.", "Tutorial", JOptionPane.DEFAULT_OPTION);
+            Generator.randomEvent();
+        }
+        else if(currentProgress < 15)
+        {
+            Generator.randomEvent();
+        }
+    }
+    
     public static void confirmOp()
     {
         switch(Event.currentEventId)
@@ -37,6 +51,45 @@ public class Event
             case 1:
             break;
         }
+    }
+
+    public static void pickUp()
+    {
+        Object[] options = text.getItemArray();
+        int answer = JOptionPane.showOptionDialog(null, "What slot do you want to replace?", "Inventory", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.DEFAULT_OPTION, null, options, options[0]);
+        switch(answer)
+        {
+            case 0:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+            case 1:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+            case 2:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+            case 3:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+            case 4:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+            case 5:
+            text.inventory.set(answer, Generator.held);
+            startEncounter();
+            break;
+        }        
+    }
+
+    public static void discard()
+    {
+
     }
     
     public static void introduction0() {
@@ -77,7 +130,15 @@ public class Event
                 }
                 damage = text.inventory.get(0).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break;
             case 1:
@@ -92,9 +153,17 @@ public class Event
                 {
                     damage = damage + text.entity.getEntityArmor();
                 }
-                damage = text.inventory.get(0).getDamage() - damage;
+                damage = text.inventory.get(1).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break; 
             case 2:
@@ -109,9 +178,17 @@ public class Event
                 {
                     damage = damage + text.entity.getEntityArmor();
                 }
-                damage = text.inventory.get(0).getDamage() - damage;
+                damage = text.inventory.get(2).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break;
             case 3:
@@ -126,9 +203,17 @@ public class Event
                 {
                     damage = damage + text.entity.getEntityArmor();
                 }
-                damage = text.inventory.get(0).getDamage() - damage;
+                damage = text.inventory.get(3).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break; 
             case 4:
@@ -143,9 +228,17 @@ public class Event
                 {
                     damage = damage + text.entity.getEntityArmor();
                 }
-                damage = text.inventory.get(0).getDamage() - damage;
+                damage = text.inventory.get(4).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break; 
             case 5:
@@ -160,13 +253,24 @@ public class Event
                 {
                     damage = damage + text.entity.getEntityArmor();
                 }
-                damage = text.inventory.get(0).getDamage() - damage;
+                damage = text.inventory.get(5).getDamage() - damage;
                 text.entity.affectEntityHealth(damage);
-                text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                if(text.entity.isAlive())
+                {
+                    text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+                    Entity.attack();
+                }
+                else
+                {
+                    Entity.kill();
+                }
             }
             break;
         }
-        Entity.attack();
+        if(text.entity.isAlive() == true)
+        {
+            Entity.attack();
+        }
     }
 
     public static void information()

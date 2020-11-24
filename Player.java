@@ -28,10 +28,34 @@ public class Player
 
     public void checkLevelup() {
         switch (playerLevel) {
-            case 1:
-                if (experience > 100) {
+            case 0:
+                if (experience > 15) 
+                {
                     levelUp();
+                    experience = experience - 15;
                 }
+            break;
+            case 1:
+                if (experience > 20) 
+                {
+                    levelUp();
+                    experience = experience - 15;
+                }
+            break;
+            case 2:
+                if (experience > 50) 
+                {
+                    levelUp();
+                    experience = experience - 15;
+                }
+            break;
+            case 3:
+                if (experience > 110) 
+                {
+                    levelUp();
+                    experience = experience - 15;
+                }
+            break;
         }
     }
 
@@ -119,5 +143,20 @@ public class Player
     public int getPlayerHealth() 
     {
         return playerHealth;
+    }
+
+    public int getExperience() 
+    {
+        return experience;
+    }
+
+    public int getPlayerLevel()
+    {
+        return playerLevel;
+    }
+
+    public void setExperience(int experience) 
+    {
+        this.experience = experience;
     }
 }
