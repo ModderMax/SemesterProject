@@ -31,7 +31,6 @@ public class Player
             case 0:
                 if (experience > 15) 
                 {
-                    System.out.println("level");
                     levelUp();
                     experience = experience - 15;
                 }
@@ -40,21 +39,21 @@ public class Player
                 if (experience > 20) 
                 {
                     levelUp();
-                    experience = experience - 15;
+                    experience = experience - 20;
                 }
             break;
             case 2:
                 if (experience > 50) 
                 {
                     levelUp();
-                    experience = experience - 15;
+                    experience = experience - 50;
                 }
             break;
             case 3:
                 if (experience > 110) 
                 {
                     levelUp();
-                    experience = experience - 15;
+                    experience = experience - 110;
                 }
             break;
         }
@@ -62,7 +61,7 @@ public class Player
 
     public void levelUp() {
         playerLevel ++;
-        Object[] options = { "Health", "Strength", "Dexterity", "Accuracy" };
+        Object[] options = { "Health", "Strength", "Dexterity", "Accuracy", "Armor" };
         int answer = JOptionPane.showOptionDialog(null, "What proficiency do you want to improve?", "You have Leveled Up!",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, options, options[0]);
 
@@ -81,6 +80,10 @@ public class Player
                 break;
             case 3:
                 playerAccuracy ++;
+                playerHealth = playerMaxHealth;
+                break;
+            case 4:
+                playerArmor ++;
                 playerHealth = playerMaxHealth;
                 break;
             default:
@@ -118,7 +121,14 @@ public class Player
             num --;
         }while(num > 0);
         out += " (" + text.player.getPlayerHealth() + ")";
-        return out;
+        if(playerHealth > 0)
+        {
+            return out;
+        }
+        else
+        {
+            return "dead";
+        }
     }
 
     public void setUsername(String username) 
@@ -156,8 +166,18 @@ public class Player
         return playerLevel;
     }
 
+    public int getPlayerArmor() 
+    {
+        return playerArmor;
+    }
+
     public void setExperience(int experience) 
     {
         this.experience = experience;
+    }
+
+    public void setPlayerArmor(int playerArmor) 
+    {
+        this.playerArmor = playerArmor;
     }
 }

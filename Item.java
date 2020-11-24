@@ -74,7 +74,7 @@ public class Item
 
     public static void punch()
     {
-        text.inventory.add(new Item(100, 10, 0, 100, "Fist", "Common"));
+        text.inventory.add(new Item(1, 1, 0, 100, "Fist", "Common"));
     }
 
     public int getAccuracy() 

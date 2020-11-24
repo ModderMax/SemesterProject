@@ -317,10 +317,29 @@ public class Event
         {
             startEncounter();
         }
+        else
+        {
+            Entity.attack();
+        }
     }
 
     public static void defend()
     {
-        
+        int x = text.player.getPlayerArmor();
+        if(x == 0)
+        {
+            text.player.setPlayerArmor(x + 1);
+        }
+        else
+        {
+            text.player.setPlayerArmor(x * 2);
+        }
+        Entity.attack();
+        text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
+        text.player.setPlayerArmor(x);
+        if(text.entity.isAlive() == false)
+        {       
+            Entity.kill();
+        }
     }
 }

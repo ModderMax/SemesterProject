@@ -192,11 +192,23 @@ class text extends JFrame implements ActionListener
             case "Discard":
                 Event.discard();
             break;
+            case "Run":
+                Event.run();
+            break;
+            case "Defend":
+                Event.defend();
+            break;
         }
     }
 
     public static Object[] getItemArray() 
     {
+        switch(player.getUsername())
+        {
+            case "King Bach":
+            inventory.set(0, new Item(7, 2, 2, 20, "Comically-Large Spoon", "Legendary"));
+            break;
+        }
         String slot0 = inventory.get(0).getName();
         String slot1 = inventory.get(1).getName();
         String slot2 = inventory.get(2).getName();

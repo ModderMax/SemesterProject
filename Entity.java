@@ -81,7 +81,15 @@ public class Entity
     {
         if(Generator.doesHit(0, false))
         {
-            text.player.affectPlayerHealth(text.entity.getEntityStrength());
+            int x = text.entity.getEntityStrength() - text.player.getPlayerArmor();
+            if(x >= 0)
+            {
+                text.player.affectPlayerHealth(x);
+            }
+            else
+            {
+                text.entity.affectEntityHealth(x * -1);
+            }
         }
         text.player.checkDeath();
         text.label0.setText(text.player.getUsername() + ": " + text.player.getHealthString());

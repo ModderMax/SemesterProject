@@ -21,6 +21,7 @@ public class Encounter
 
     public static void battle()
     {
+        text.player.checkLevelup();
         Event.currentEventId = 1;
         ChangeUI.enableAll(true, true, true, true, false, false, false, true, true, true);
         ChangeUI.locationButton(120, 30, 120, 520,
@@ -36,5 +37,15 @@ public class Encounter
         ChangeUI.textAll("Attack", "Defend", "Information", "Run", "Exit", "Soul", "Y",
                             text.player.getUsername() + ": " + text.player.getHealthString(),
                             text.entity.getEntityName() + ": " + text.entity.getHealthString(), Config.slimeTexture());
+    }
+
+    public static void ed()
+    {
+
+    }
+
+    public static void sans()
+    {
+        
     }
 }

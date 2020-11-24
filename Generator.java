@@ -189,7 +189,7 @@ public class Generator
         switch(text.player.getPlayerLevel())
         {
             case 0:
-                randomInt = rand.nextInt(1);
+                randomInt = rand.nextInt(3);
                 switch(randomInt)
                 {
                     case 0:
@@ -204,7 +204,7 @@ public class Generator
                 }
             break;
             case 1:
-            randomInt = rand.nextInt(1);
+            randomInt = rand.nextInt(3);
                 switch(randomInt)
                 {
                     case 0:
@@ -219,7 +219,7 @@ public class Generator
                 }
             break;
             case 2:
-            randomInt = rand.nextInt(1);
+            randomInt = rand.nextInt(3);
                 switch(randomInt)
                 {
                     case 0:
@@ -234,7 +234,7 @@ public class Generator
                 }
             break;
             case 3:
-            randomInt = rand.nextInt(1);
+            randomInt = rand.nextInt(3);
                 switch(randomInt)
                 {
                     case 0:
