@@ -31,7 +31,7 @@ public class Encounter
                                 text.button5.getPreferredSize().width, text.button5.getPreferredSize().height, 100, 10);
         ChangeUI.locationField(500, text.label0.getPreferredSize().height, 0, 0,
                                500, text.label1.getPreferredSize().height, 220, 470,
-                               400, text.label2.getPreferredSize().height + 200, 40, 50,
+                               400, text.label2.getPreferredSize().height + 200, 40, -20,
                                text.text0.getPreferredSize().width, text.text0.getPreferredSize().height, 190, 420);
         ChangeUI.textAll("Attack", "Defend", "Information", "Run", "Exit", "Soul", "Y",
                             text.player.getUsername() + ": " + text.player.getHealthString(),

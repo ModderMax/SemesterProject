@@ -9,7 +9,7 @@ public class Generator
     {
         int randomInt = rand.nextInt(7);
         int x = text.player.getPlayerDexterity() - text.player.getPlayerDexterity();
-        x = x + 5;
+        x = x + 4;
         if(x > randomInt)
         {
             return true;
@@ -87,54 +87,76 @@ public class Generator
     
     public static void randomLegendary() 
     {
-        int randomInt = rand.nextInt(1);
+        int randomInt = rand.nextInt(3);
 
         switch(randomInt)
         {
             case 0:
             Item.theComicallyLargeSpoon();
             break;
+            case 1:
+            Item.actOfViolence();
+            break;
+            case 2:
+            Item.bradleysStraightSaberOfWrath();
+            break;
         }
     }
 
     public static void randomUnique()
     {
-        int randomInt = rand.nextInt(1);
+        int randomInt = rand.nextInt(4);
 
         switch(randomInt)
         {
             case 0:
             Item.energySword();
             break;
+            case 1:
+            Item.threeDimensionalManeuverGear();
+            break;
+            case 2:
+            Item.masterSword();
+            break;
+            case 3:
+            Item.diamondSword();
+            break;
         }
     }
 
     public static void randomRare()
     {
-        int randomInt = rand.nextInt(1);
+        int randomInt = rand.nextInt(2);
 
         switch(randomInt)
         {
             case 0:
             Item.charasKnife();
             break;
+            case 1:
+            Item.hashSlingingSlashSingingSpatula();
+            break;
         }
     }
 
     public static void randomCommon()
     {
-        int randomInt = rand.nextInt(1);
+        int randomInt = rand.nextInt(2);
 
         switch(randomInt)
         {
             case 0:
             Item.slipper();
             break;
+            case 1:
+            Item.fryingPan();
+            break;
         }
     }
 
     public static void randomEvent()
     {
+        Event.currentProgress ++;
         randomBattle();
         /*int randomInt = rand.nextInt(5);
         if(randomInt == 0)

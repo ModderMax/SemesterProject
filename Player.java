@@ -31,6 +31,7 @@ public class Player
             case 0:
                 if (experience > 15) 
                 {
+                    System.out.println("level");
                     levelUp();
                     experience = experience - 15;
                 }
@@ -60,9 +61,9 @@ public class Player
     }
 
     public void levelUp() {
-        playerLevel++;
+        playerLevel ++;
         Object[] options = { "Health", "Strength", "Dexterity", "Accuracy" };
-        int answer = JOptionPane.showOptionDialog(null, "What proficiency do you want to improve?", "Stat Increase",
+        int answer = JOptionPane.showOptionDialog(null, "What proficiency do you want to improve?", "You have Leveled Up!",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, options, options[0]);
 
         switch (answer) {
@@ -71,15 +72,15 @@ public class Player
                 playerHealth = playerMaxHealth;
                 break;
             case 1:
-                playerStrength++;
+                playerStrength ++;
                 playerHealth = playerMaxHealth;
                 break;
             case 2:
-                playerDexterity++;
+                playerDexterity ++;
                 playerHealth = playerMaxHealth;
                 break;
             case 3:
-                playerAccuracy++;
+                playerAccuracy ++;
                 playerHealth = playerMaxHealth;
                 break;
             default:

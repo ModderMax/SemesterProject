@@ -54,7 +54,7 @@ public class Item
 
     public static void masterSword() // Legend of Zelda reference; Unique
     {
-        Generator.held = new Item(12, 2, 0, 25, "3-Dimensional Maneuver Gear", "Unique");
+        Generator.held = new Item(12, 2, 0, 25, "Master Sword", "Unique");
     }
 
     public static void diamondSword() // Minecraft reference; Rare
@@ -64,7 +64,7 @@ public class Item
 
     public static void fryingPan() // Common
     {
-
+        Generator.held = new Item(1, 1, 1, 9, "Frying Pan", "Common");
     }
 
     public static void slipper() // Common

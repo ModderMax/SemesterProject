@@ -21,7 +21,7 @@ public class Event
             JOptionPane.showMessageDialog(null, "You have completed the tutorial.", "Tutorial", JOptionPane.DEFAULT_OPTION);
             Generator.randomEvent();
         }
-        else if(currentProgress < 15)
+        else if(currentProgress < 20)
         {
             Generator.randomEvent();
         }
@@ -62,26 +62,38 @@ public class Event
         {
             case 0:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
             case 1:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
             case 2:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
             case 3:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
             case 4:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
             case 5:
             text.inventory.set(answer, Generator.held);
+            text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+            text.player.checkLevelup();
             startEncounter();
             break;
         }        
@@ -89,7 +101,9 @@ public class Event
 
     public static void discard()
     {
-
+        text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
+        text.player.checkLevelup();
+        startEncounter();
     }
     
     public static void introduction0() {
@@ -297,5 +311,16 @@ public class Event
                                          "Information", JOptionPane.DEFAULT_OPTION);
     }
 
+    public static void run()
+    {
+        if(Generator.doesRun())
+        {
+            startEncounter();
+        }
+    }
 
+    public static void defend()
+    {
+        
+    }
 }

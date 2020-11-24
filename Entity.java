@@ -41,7 +41,6 @@ public class Entity
                             "+ " + Generator.held.getName() + ", " + Generator.held.getRarity(),
                             text.entity.getEntityName() + ": Dead",
                             Config.graveTexture());
-        text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
         text.player.checkLevelup();
     }
 
@@ -172,6 +171,7 @@ public class Entity
         text.entity.setEntityDexterity(-1);
         text.entity.setEntityAccuracy(0);
         text.entity.setEntityArmor(-1);
+        text.entity.setEntityExp(15);
     }
 
     public static void blueSlime() // Level 1 Enemy
