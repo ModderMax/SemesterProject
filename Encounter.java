@@ -62,11 +62,6 @@ public class Encounter
                             Event.currentProgress ++;         
     }
 
-    public static void sans()
-    {
-        
-    }
-
     public static void bossBattle()
     {
         text.player.checkLevelup();
@@ -90,7 +85,7 @@ public class Encounter
 
     public static void death()
     {
-        ChangeUI.enableAll(true, true, false, false, false, false, false, true, true, true);
+        ChangeUI.enableAll(true, true, false, false, false, false, false, true, false, true);
         ChangeUI.locationButton(120, 30, 120, 520,
                                 120, 30, 280, 520, 
                                 120, 30, 120, 600, 
