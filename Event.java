@@ -1,9 +1,9 @@
 /**
  * ---------------------------------------------------------------------------
- * File name: Main.java
+ * File name: Event.java
  * Project name: Semester Project - Text Based RPG
  * ---------------------------------------------------------------------------
- * Creator's name and email: 
+ * Creator's name and email: Maxwell Brown, max@nendal.com
  * Course:  CSCI 1250
  * Creation Date: 11/7/2020 
  * ---------------------------------------------------------------------------
@@ -13,11 +13,12 @@ import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
 /**
- * Event class for handling events that take place outside of fights and trials.
+ * Event class for managing events
  *
  * Date created: 11/7/2020
  * 
  * @author Maxwell Brown
+ * @author
  */
 public class Event
 {
@@ -25,6 +26,13 @@ public class Event
     static int currentProgress; // for keeping track of when the final boss event should be called
 
 
+    /**
+     * Method starting a new encounter based on the situation
+     * 
+     * Date created: 11/20/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void startEncounter()
     {      
         if(currentEventId == 0)
@@ -47,6 +55,14 @@ public class Event
         }
     }
     
+    /**
+     * Method when the player says "Ok"
+     * directs to another ouput based on situation
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void confirmOp()
     {
         switch(Event.currentEventId)
@@ -71,6 +87,7 @@ public class Event
      * 
      * Date created: 10/24/2020
      * 
+     * @author Maxwell Brown
      */
     public static void rejectOp()
     {
@@ -82,6 +99,13 @@ public class Event
         }
     }
 
+    /**
+     * Method for putting items into the inventory
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void pickUp()
     {
         Object[] options = text.getItemArray();
@@ -122,12 +146,26 @@ public class Event
         }        
     }
 
+    /**
+     * Method for skipping the pick up
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void discard()
     {
         text.player.checkLevelup();
         startEncounter();
     }
     
+    /**
+     * Method for starting the introduction
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void introduction0() {
         Event.currentEventId = 0;
         text.button1.setEnabled(false);
@@ -140,11 +178,25 @@ public class Event
         text.button2.setText("Ok");
     }
 
+    /**
+     * Method for starting the introduction
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void introduction1()
     {
         Encounter.tutorial();
     }
 
+    /**
+     * Method for player attacks
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void attackInventory()
     {
         Object[] options = text.getItemArray();
@@ -321,6 +373,13 @@ public class Event
         }
     }
 
+    /**
+     * Method for information tab
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void information()
     {
         Object[] options = {"Enemy", "Player", "Item"};
@@ -340,6 +399,13 @@ public class Event
         }
     }
     
+    /**
+     * Method for getting information on the enemy
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void informationEnemy()
     {
         DecimalFormat df = new DecimalFormat("0.00");
@@ -358,6 +424,13 @@ public class Event
                                          "Information", JOptionPane.DEFAULT_OPTION);
     }
 
+    /**
+     * Method for getting information on the player
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void informationPlayer()
     {
         JOptionPane.showMessageDialog(null, "Player: " + text.player.getUsername() + 
@@ -369,6 +442,13 @@ public class Event
                                             , "Information", JOptionPane.DEFAULT_OPTION);
     }
 
+    /**
+     * Method for getting information on items in the inventory
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void informationItem()
     {
         Object[] options = text.getItemArray();
@@ -427,6 +507,13 @@ public class Event
         }
     }
 
+    /**
+     * Method for running from battle
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void run()
     {
         if(Generator.doesRun())
@@ -439,6 +526,13 @@ public class Event
         }
     }
 
+    /**
+     * Method for defending
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void defend()
     {
         int x = text.player.getPlayerArmor();

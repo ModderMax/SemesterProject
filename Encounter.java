@@ -1,6 +1,34 @@
+/**
+ * ---------------------------------------------------------------------------
+ * File name: Encounter.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Course:  CSCI 1250
+ * Creation Date: 11/7/2020 
+ * ---------------------------------------------------------------------------
+*/
+
+/**
+ * Encounter class for changing the UI according to the situation
+ *
+ * Date created: 11/7/2020
+ * 
+ * @author Maxwell Brown
+ * @author
+ */
 public class Encounter 
 {
     static String activeTexture;
+    /**
+     * Method for enacting the player's interaction with monsters in 
+     * the tutorial battle as well as diplaying various input methods for the 
+     * user.
+     *
+     * Date created: 11/7/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static void tutorial()
     {
         Entity.greenSlime();
@@ -21,6 +49,15 @@ public class Encounter
         Event.currentProgress ++;
     }
 
+    /**
+    * Method for enacting the player's interaction with monsters in battle
+    * as well as diplaying various input methods for the 
+    * user.
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    */
     public static void battle()
     {
         text.player.checkLevelup();
@@ -42,6 +79,15 @@ public class Encounter
                             Event.currentProgress ++;
     }
 
+    /**
+    * Method for enacting the player's interaction with the non-hostile NPC
+    * as well as diplaying various output for the 
+    * user.
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    */
     public static void ed()
     {
         Event.currentEventId = 2;
@@ -62,6 +108,15 @@ public class Encounter
                             Event.currentProgress ++;         
     }
 
+    /**
+    * Method for enacting the player's interaction with boss monsters in battle
+    * as well as diplaying various input methods for the 
+    * user.
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    */
     public static void bossBattle()
     {
         text.player.checkLevelup();
@@ -83,6 +138,15 @@ public class Encounter
                             Event.currentProgress ++;
     }
 
+    /**
+    * Method for enacting the player's death when conditions are met
+    * as well as diplaying various input methods for the 
+    * user.
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    */
     public static void death()
     {
         ChangeUI.enableAll(true, true, false, false, false, false, false, true, false, true);

@@ -1,7 +1,35 @@
+/**
+ * ---------------------------------------------------------------------------
+ * File name: ChangeUI.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Course:  CSCI 1250
+ * Creation Date: 11/7/2020 
+ * ---------------------------------------------------------------------------
+*/
 import java.awt.*;
+
+/**
+ * text class for identifying the active listener
+ * contains the main method to run the program
+ *
+ * Date created: 11/7/2020
+ * 
+ * @author Maxwell Brown
+ */
 
 public class ChangeUI 
 {
+    /**
+    * Method for setting the type of buttons to boolean 
+    * and enabling or disabling them as needed
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    * 
+    */
     public static void enableAll(boolean b0, boolean b1, boolean b2, boolean b3, boolean b4, boolean b5,
                             boolean t0, boolean l0, boolean l1, boolean l2)
     {
@@ -24,6 +52,14 @@ public class ChangeUI
         text.text0.setVisible(t0);
     }
 
+    /**
+    * Method for setting the String output 
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    * 
+    */
     public static void textAll(String b0, String b1, String b2, String b3, String b4, String b5,
                                 String t0, String l0, String l1, String l2)
     {
@@ -38,6 +74,15 @@ public class ChangeUI
         text.label2.setText(l2);
     }
 
+    /**
+    * Setter for the location of all buttons 
+    * for user input 
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    * 
+    */
     public static void locationButton(int b0w, int b0l, int b0x, int b0y,
                                       int b1w, int b1l, int b1x, int b1y,
                                       int b2w, int b2l, int b2x, int b2y,
@@ -55,6 +100,14 @@ public class ChangeUI
         
     }
 
+    /**
+    * Setters for locations of fields
+    *
+    * Date created: 11/7/2020
+    * 
+    * @author Maxwell Brown
+    * 
+    */
     public static void locationField(int l0w, int l0l, int l0x, int l0y,
                                      int l1w, int l1l, int l1x, int l1y,
                                      int l2w, int l2l, int l2x, int l2y,

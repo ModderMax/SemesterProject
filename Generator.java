@@ -1,10 +1,41 @@
+/**
+ * ---------------------------------------------------------------------------
+ * File name: Generator.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: Julian Hyder, hyderjc@etdu.edu
+ * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Course:  CSCI-1250
+ * Creation Date: 11/10/2020 
+ * Last updated: 11/24/2020
+ * ---------------------------------------------------------------------------
+*/
+
 import java.util.Random;
+
+/**
+ * Class for generating enemies, items, and chances
+ * 
+ *
+ * Date created: 11/10/2020
+ * 
+ * @author Julian hyder
+ * @author Maxwell Brown
+ */
 
 public class Generator 
 {
     static Random rand = new Random();
     public static Item held;
-
+    
+    /**
+    * returns true or false based off random chance and dexterity
+    *
+    * Date created: 11/9/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static boolean doesRun()
     {
         int randomInt = rand.nextInt(7);
@@ -22,6 +53,14 @@ public class Generator
         }
     }
 
+    /**
+    * Assigns variables to local variables for item
+    *
+    * Date created: 11/9/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomBoss()
     {
         int randomInt = rand.nextInt(3);
@@ -44,6 +83,14 @@ public class Generator
         }
     }
 
+     /**
+    * creates percentage to see if player hits entity
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static boolean doesHit(int itemToHit, boolean isPlayer)
     {
         if(isPlayer)
@@ -80,12 +127,29 @@ public class Generator
         }
     }
 
+    /**
+    * creates disparsity int and makes it into a random int
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static int randomBetween(int num1, int num2)
     {
         int disparity = num2 - num1 + 1;
         return rand.nextInt(disparity) + num1;
     }
 
+    /**
+    * Creates chances for items
+    * Only for finding Legendary to common and than calls those methods
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomRarity()
     {
         int randomInt = rand.nextInt(105);
@@ -115,6 +179,14 @@ public class Generator
         }
     }
     
+    /**
+    * All the legendary items, gets chosen based off random integer
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomLegendary() 
     {
         int randomInt = rand.nextInt(3);
@@ -133,6 +205,14 @@ public class Generator
         }
     }
 
+    /**
+    * All the unique items, gets chosen based off random integer
+    *
+    * Date created: 11/16/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomUnique()
     {
         int randomInt = rand.nextInt(4);
@@ -154,6 +234,14 @@ public class Generator
         }
     }
 
+    /**
+    * All the rare items, gets chosen based off random Integer
+    *
+    * Date created: 11/16/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomRare()
     {
         int randomInt = rand.nextInt(2);
@@ -169,6 +257,14 @@ public class Generator
         }
     }
 
+    /**
+    * All the common Items, gets chosen based off random Integer
+    *
+    * Date created: 11/16/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomCommon()
     {
         int randomInt = rand.nextInt(3);
@@ -187,6 +283,14 @@ public class Generator
         }
     }
 
+    /**
+    * Creates event based off random Int
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomEvent()
     {
         Event.currentProgress ++;
@@ -207,11 +311,28 @@ public class Generator
 
     }
 
+    /**
+    * calls ed encounter method
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomEncounter()
     {
         Encounter.ed();
     }
 
+    /**
+    * creates cases of enimies and generates based off the case
+    * uses rando Integers
+    *
+    * Date created: 11/15/2020
+    * 
+    * @author Julian Hyder
+    * @author Maxwell Brown
+    */
     public static void randomBattle()
     {
         int randomInt;

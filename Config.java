@@ -1,4 +1,20 @@
+/**---------------------------------------------------------------------------
+ * File name: Config.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Course:  CSCI 1250
+ * Creation Date: 11/7/2020 
+ * ---------------------------------------------------------------------------
+*/
 
+/**
+ * Config class for storing settings and textures
+ *
+ * Date created: 11/7/2020
+ * 
+ * @author Maxwell Brown
+ */
 public class Config 
 {
     //settings
@@ -9,37 +25,87 @@ public class Config
     public static int yResolution = 700;
     public static boolean testMode = true;
 
+    /**
+     * getter for difficulty
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static int getDifficulty() 
     {
         return difficulty;
     }
 
+    /**
+     * getter for loot table, not implemented
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static int getLootTable()
     {
         return lootTable;
     }
 
+    /**
+     * getter for scenario, not implemented
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static int getScenario() 
     {
         return scenario;
     }
 
+    /**
+     * getter for x resolution
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static int getxResolution() 
     {
         return xResolution;
     }
 
+    /**
+     * getter for y resolution
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static int getyResolution() 
     {
         return yResolution;
     }
 
+    /**
+     * getter for test mode, not implemented
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static boolean getTestMode() 
     {
         return testMode;
     }
 
     //textures
+    
+    /**
+     * slime 
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static String slimeTexture()
     {
         return "<html>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<br>" + 
@@ -61,6 +127,13 @@ public class Config
                      "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
     }
 
+    /**
+     * mouse
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static String mouseTexture()
     {
         return "<html>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<br>" +
@@ -88,6 +161,13 @@ public class Config
                     "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
     }
 
+    /**
+     * wolf
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static String wolfTexture()
     {
         return "<html>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<br>" +
@@ -119,6 +199,13 @@ public class Config
                     "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
     }
 
+    /**
+     * skeleton
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static String skeletonTexture()
     {
         return "<html>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<br>" +
@@ -149,6 +236,13 @@ public class Config
                      "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
     }
 
+    /**
+     * grave
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static String graveTexture()
     {
         return "<html>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<br>" +
@@ -179,6 +273,14 @@ public class Config
                      "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
     }
 
+    /**
+     * character sprite
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String charSprite()
     {
         return "<html>██████████████████████████████████████<br>" + 
@@ -200,6 +302,14 @@ public class Config
                      "██████████████████████████████████████";
     }
 
+    /**
+     * capra
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String capraTexture()
     {
         return "<html>███▀▀▀▀▀██████████████████▀▀▀▀▀▀██████<br>" +
@@ -221,6 +331,14 @@ public class Config
                      "██████████████▄░░░░░░▄████████████████";
     }
 
+    /**
+     * ghost
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String ghostTexture()
     {
         return "<html>███████████████████████████<br>" +
@@ -243,6 +361,14 @@ public class Config
 
     }
 
+    /**
+     * goblin
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String goblinTexture()
     {
         return "<html>██████████████████████████████████████<br>" +
@@ -265,6 +391,14 @@ public class Config
 
     }
 
+    /**
+     * knight
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String knightTexture()
     {
         return "<html>█████████████████████████████████████<br>" +
@@ -287,6 +421,14 @@ public class Config
 
     }
 
+    /**
+     * cube
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String cubeTexture()
     {
         return "<html>██████████████████████████████████████<br>" +
@@ -308,6 +450,14 @@ public class Config
                      "██████████████████████████████████████";
     }
 
+    /**
+     * droid
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String droidTexture()
     {
         return "<html>█████████████████████████████████████<br>" +
@@ -329,6 +479,14 @@ public class Config
                      "███████▒▒████▒▒██░░██▒▒████▒▒████████";
     }
 
+    /**
+     * dargon
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String dargonTexture()
     {
         return "<html>██████████████████████████████████████<br>" +
@@ -351,6 +509,14 @@ public class Config
 
     }
 
+    /**
+     * hydra
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String hyderaTexture()
     {
         return "<html>██░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░█████████████<br>" +
@@ -372,6 +538,14 @@ public class Config
                      "███████████████████████▄▄▄▄▄▄▄▄███████";
     }
 
+    /**
+     * griffin
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String griffinTexture()
     {
         return "<html>█████████████████████████████████████<br>" +
@@ -393,6 +567,14 @@ public class Config
                      "███░░░░░░░░█████░████▒▒░░░█████▒█████";
     }
 
+    /**
+     * cerberus
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String cerberusTexture()
     {
         return "<html>██████████▒███████████████▒██████████<br>" +
@@ -414,6 +596,14 @@ public class Config
                      "███▒█████▒█████████████████▒█████▒███";
     }
 
+    /**
+     * medusa
+     * 
+     * Date created: 11/11/2020
+     * 
+     * @author Daniel Campbell
+     * @author Julian Hyder
+     */
     public static String medusaTexture()
     {
         return "<html>█░░░███████████████████████░▄░████████<br>" +
