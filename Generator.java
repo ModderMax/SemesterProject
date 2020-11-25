@@ -22,6 +22,28 @@ public class Generator
         }
     }
 
+    public static void randomBoss()
+    {
+        int randomInt = rand.nextInt(3);
+        switch(randomInt)
+        {
+            case 0:
+                Entity.medusa();
+                Encounter.activeTexture = Config.medusaTexture();
+                Encounter.bossBattle();
+            break;
+            case 1:
+                Entity.hydra();
+                Encounter.activeTexture = Config.hyderaTexture();
+                Encounter.bossBattle();
+            case 2:
+                Entity.cerberus();
+                Encounter.activeTexture = Config.cerberusTexture();
+                Encounter.bossBattle();
+            break;
+        }
+    }
+
     public static boolean doesHit(int itemToHit, boolean isPlayer)
     {
         if(isPlayer)
@@ -177,7 +199,7 @@ public class Generator
         }
     }
 
-    public static void randomTrial()
+    public static void randomTrial() // Uncompleted; do not implement
     {
 
     }
@@ -198,21 +220,27 @@ public class Generator
                 {
                     case 0:
                         Entity.blueSlime();
+                        Encounter.activeTexture = Config.slimeTexture();
                     break;
                     case 1:
                         Entity.greenSlime();
+                        Encounter.activeTexture = Config.slimeTexture();
                     break;
                     case 2:
                         Entity.wolf();
+                        Encounter.activeTexture = Config.wolfTexture();
                     break;
                     case 3:
                         Entity.giantRat();
+                        Encounter.activeTexture = Config.mouseTexture();
                     break;
                     case 4:
                         Entity.slightlyLessRat();
+                        Encounter.activeTexture = Config.mouseTexture();
                     break;
                     case 5:
                         Entity.phantasm();
+                        Encounter.activeTexture = Config.ghostTexture();
                     break;
                 }
             break;
@@ -222,15 +250,19 @@ public class Generator
                 {
                     case 0:
                         Entity.goblinSkirmisher();
+                        Encounter.activeTexture = Config.goblinTexture();
                     break;
                     case 1:
                         Entity.goblinAmbusher();
+                        Encounter.activeTexture = Config.goblinTexture();
                     break;
                     case 2:
                         Entity.skeletonArcher();
+                        Encounter.activeTexture = Config.skeletonTexture();
                     break;
                     case 3:
                         Entity.phantom();
+                        Encounter.activeTexture = Config.ghostTexture();
                     break;
                     case 4:
 
@@ -242,64 +274,90 @@ public class Generator
                 {
                     case 0:
                         Entity.goblinChef();
+                        Encounter.activeTexture = Config.goblinTexture();
                     break;
                     case 1:
                         Entity.skeletonSoldier();
+                        Encounter.activeTexture = Config.skeletonTexture();
                     break;
                     case 2:
                         Entity.direWolf();
+                        Encounter.activeTexture = Config.wolfTexture();
                     break;
                     case 3:
                         Entity.skeletonArcher();
+                        Encounter.activeTexture = Config.skeletonTexture();
                     break;
 
                 }
             break;
             case 3:
-            randomInt = rand.nextInt(3);
+            randomInt = rand.nextInt(5);
                 switch(randomInt)
                 {
                     case 0:
                         Entity.capraDemon();
+                        Encounter.activeTexture = Config.capraTexture();
                     break;
                     case 1:
                         Entity.battleCube();
+                        Encounter.activeTexture = Config.cubeTexture();
                     break;
                     case 2:
                         Entity.haywireDroid();
+                        Encounter.activeTexture = Config.droidTexture();
                     break;
                     case 3:
                         Entity.banshee();
+                        Encounter.activeTexture = Config.ghostTexture();
                     break;
                     case 4:
                         Entity.lich();
+                        Encounter.activeTexture = Config.skeletonTexture();
                     break;
                 }
             break;
             case 4:
-            randomInt = rand.nextInt(1);
+            randomInt = rand.nextInt(4);
                 switch(randomInt)
                 {
                     case 0:
                         Entity.wraith();
+                        Encounter.activeTexture = Config.ghostTexture();
                     break;
                     case 1:
                         Entity.rougeKnight();
+                        Encounter.activeTexture = Config.knightTexture();
                     break;
                     case 2:
-                        Entity.babyDragon();
+                        Entity.babyDargon();
+                        Encounter.activeTexture = Config.dargonTexture();
                     break;
                     case 3:
                         Entity.griffin();
+                        Encounter.activeTexture = Config.griffinTexture();
                     break;
                 }
             break;
-            case 5:
-            randomInt = rand.nextInt(1);
+            default:
+            randomInt = rand.nextInt(4);
                 switch(randomInt)
                 {
                     case 0:
                         Entity.wraith();
+                        Encounter.activeTexture = Config.ghostTexture();
+                    break;
+                    case 1:
+                        Entity.rougeKnight();
+                        Encounter.activeTexture = Config.knightTexture();
+                    break;
+                    case 2:
+                        Entity.babyDargon();
+                        Encounter.activeTexture = Config.dargonTexture();
+                    break;
+                    case 3:
+                        Entity.griffin();
+                        Encounter.activeTexture = Config.griffinTexture();
                     break;
                 }
             break;

@@ -1,3 +1,14 @@
+/**
+ * ---------------------------------------------------------------------------
+ * File name: Main.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: 
+ * Course:  CSCI 1250
+ * Creation Date: 11/7/2020 
+ * ---------------------------------------------------------------------------
+*/
+
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
@@ -43,14 +54,21 @@ public class Player
                 }
             break;
             case 2:
-                if (experience > 50) 
+                if (experience > 45) 
                 {
                     levelUp();
                     experience = experience - 50;
                 }
             break;
             case 3:
-                if (experience > 110) 
+                if (experience > 80) 
+                {
+                    levelUp();
+                    experience = experience - 110;
+                }
+            break;
+            case 4:
+                if (experience > 125) 
                 {
                     levelUp();
                     experience = experience - 110;
@@ -92,14 +110,17 @@ public class Player
         }
     }
 
-    public void checkDeath() {
-        if (playerHealth >= 0) {
+    public void checkDeath() 
+    {
+        if (playerHealth <= 0) 
+        {
             death();
         }
     }
 
-    public void death() {
-
+    public void death() 
+    {
+        Encounter.death();
     }
 
     public void affectPlayerHealth(int amount) 
@@ -181,6 +202,11 @@ public class Player
         return playerStrength;
     }
 
+    public void setPlayerMaxHealth(int playerMaxHealth) 
+    {
+        this.playerMaxHealth = playerMaxHealth;
+    }
+
     public void setExperience(int experience) 
     {
         this.experience = experience;
@@ -189,5 +215,20 @@ public class Player
     public void setPlayerArmor(int playerArmor) 
     {
         this.playerArmor = playerArmor;
+    }
+
+    public void setPlayerStrength(int playerStrength) 
+    {
+        this.playerStrength = playerStrength;
+    }
+
+    public void setPlayerDexterity(int playerDexterity) 
+    {
+        this.playerDexterity = playerDexterity;
+    }
+
+    public void setPlayerHealth(int playerHealth) 
+    {
+        this.playerHealth = playerHealth;
     }
 }

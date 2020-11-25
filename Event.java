@@ -1,3 +1,14 @@
+/**
+ * ---------------------------------------------------------------------------
+ * File name: Main.java
+ * Project name: Semester Project - Text Based RPG
+ * ---------------------------------------------------------------------------
+ * Creator's name and email: 
+ * Course:  CSCI 1250
+ * Creation Date: 11/7/2020 
+ * ---------------------------------------------------------------------------
+*/
+
 import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
@@ -21,9 +32,18 @@ public class Event
             JOptionPane.showMessageDialog(null, "You have completed the tutorial.", "Tutorial", JOptionPane.DEFAULT_OPTION);
             Generator.randomEvent();
         }
+        else if(currentEventId == 3)
+        {
+            JOptionPane.showMessageDialog(null, "You Win! \nYour soul has found true peace.", "You Win", JOptionPane.DEFAULT_OPTION);
+            System.exit(0);
+        }
         else if(currentProgress < 20)
         {
             Generator.randomEvent();
+        }
+        else
+        {
+            Generator.randomBoss();
         }
     }
     
@@ -32,7 +52,15 @@ public class Event
         switch(Event.currentEventId)
         {
             case 0:
-            introduction1();
+                introduction1();
+            break;
+            case 2:
+                text.player.setPlayerMaxHealth(text.player.getPlayerMaxHealth() / 2);
+                text.player.setPlayerHealth(text.player.getPlayerHealth() / 2 + 1);
+                text.player.setPlayerArmor(text.player.getPlayerArmor() + 1);
+                text.player.setPlayerStrength(text.player.getPlayerStrength() + 2);
+                System.out.println("A part of your soul has been lost in pursuit of strength.");
+                startEncounter();
             break;
         }
 
@@ -48,7 +76,8 @@ public class Event
     {
         switch(Event.currentEventId)
         {
-            case 1:
+            case 2:
+                startEncounter();
             break;
         }
     }
@@ -289,13 +318,12 @@ public class Event
         if(text.entity.isAlive() == true)
         {
             Entity.attack();
-            text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
         }
     }
 
     public static void information()
     {
-        Object[] options = {"Enemy", "Player"};
+        Object[] options = {"Enemy", "Player", "Item"};
         int answer = JOptionPane.showOptionDialog(null, "Select what you want information on", "Information Pane", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.DEFAULT_OPTION, null, options, options[0]);
         switch(answer)
@@ -305,6 +333,9 @@ public class Event
             break;
             case 1:
                 Event.informationPlayer();
+            break;
+            case 2:
+                Event.informationItem();
             break;
         }
     }
@@ -334,9 +365,66 @@ public class Event
                                             "\nAccuracy: " + text.player.getPlayerAccuracy() + 
                                             "\nStrength: " + text.player.getPlayerStrength() + 
                                             "\nArmor: " + text.player.getPlayerArmor() + 
-                                            "\nDexterity: " + text.player.getPlayerDexterity() +
-                                            "\n"
+                                            "\nDexterity: " + text.player.getPlayerDexterity()
                                             , "Information", JOptionPane.DEFAULT_OPTION);
+    }
+
+    public static void informationItem()
+    {
+        Object[] options = text.getItemArray();
+        int answer = JOptionPane.showOptionDialog(null, "Select which weapon to attack with", "Attack", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.DEFAULT_OPTION, null, options, options[0]);
+        switch(answer)
+        {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+            case 4:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+            case 5:
+                JOptionPane.showMessageDialog(null, "Item: " + text.inventory.get(answer).getName() + ", " + text.inventory.get(answer).getRarity() +
+                                                    "\nDamage: " + text.inventory.get(answer).getDamage() + 
+                                                    "\nAccuracy: " + text.inventory.get(answer).getAccuracy() +
+                                                    "\nPierce: " + text.inventory.get(answer).getPiercing() + 
+                                                    "\nDurability: " + text.inventory.get(answer).getDurability()
+                                               , "Information", JOptionPane.DEFAULT_OPTION);
+            break;
+        }
     }
 
     public static void run()
@@ -354,9 +442,13 @@ public class Event
     public static void defend()
     {
         int x = text.player.getPlayerArmor();
-        if(x == 0)
+        if(x > 4)
         {
-            text.player.setPlayerArmor(x + 1);
+            text.player.setPlayerArmor(x + 3);
+        }
+        else if(x > 2)
+        {
+            text.player.setPlayerArmor(x + 2);
         }
         else
         {

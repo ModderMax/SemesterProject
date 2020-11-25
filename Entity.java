@@ -98,13 +98,10 @@ public class Entity
                 text.entity.affectEntityHealth(x * -1);
             }
         }
-        else
-        {
-            // System.out.println("The " + text.entity.getEntityName() + " missed you");
-        }
         
-        text.player.checkDeath();
+        text.label1.setText(text.entity.getEntityName() + ": " + text.entity.getHealthString());
         text.label0.setText(text.player.getUsername() + ": " + text.player.getHealthString());
+        text.player.checkDeath();
     }
 
     public String getEntityName() 
@@ -392,9 +389,9 @@ public class Entity
         text.entity.setEntityExp(42);
     }
 
-    public static void babyDragon() // Level 5 Enemy
+    public static void babyDargon() // Level 5 Enemy
     {
-        text.entity.setEntityName("Baby Dragon");
+        text.entity.setEntityName("Baby Dargon"); // misspell is purposeful
         text.entity.setEntityHealth(21);
         text.entity.setEntityStrength(4);
         text.entity.setEntityDexterity(2);

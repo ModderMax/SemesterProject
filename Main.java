@@ -198,20 +198,65 @@ class text extends JFrame implements ActionListener
             case "Defend":
                 Event.defend();
             break;
+            case "𝓐𝓬𝓬𝓮𝓹𝓽 𝓓𝓮𝓪𝓽𝓱":
+                if(Generator.randomBetween(0, 99) < 1)
+                {
+                    player.setPlayerHealth(player.getPlayerMaxHealth());
+                    System.out.println("The god of life has seen your cruel fate and blessed you with new life.");
+                    Event.currentEventId = 1;
+                    Event.currentProgress --;
+                    Event.startEncounter();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Accepting your fate, your soul passes on,\nleaving you with your happiest memories.",
+                                                         "You died a peaceful death.", JOptionPane.DEFAULT_OPTION);
+                    System.exit(0);
+                }
+            break;
+            case "𝕯𝖊𝖓𝖞 𝕱𝖆𝖙𝖊":
+            if(Generator.randomBetween(0, 99) - player.getPlayerLevel() < 1)
+                {
+                    player.setPlayerHealth(player.getPlayerMaxHealth());
+                    System.out.println("The god of death has smiled upon your desire and has cursed you with new life.");
+                    Event.currentEventId = 1;
+                    Event.currentProgress --;
+                    Event.startEncounter();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Despite your best efforts, \nyour soul disappears along with your memories.",
+                                                         "You died a death of agony.", JOptionPane.DEFAULT_OPTION);
+                    System.exit(0);
+                }
+            break;
         }
     }
 
+    /**
+     * Method for turning the inventory into an ItemArray
+     * Gives certain buffs for secret code usernames on start
+     * 
+     * Date created: 10/24/2020
+     * 
+     * @author Maxwell Brown
+     */
     public static Object[] getItemArray() 
     {
-        switch(player.getUsername())
+        boolean start = true;
+        if(start)
         {
-            case "King Bach":
-            inventory.set(0, new Item(7, 2, 2, 20, "Comically-Large Spoon", "Legendary"));
-            break;
-            case "Alphonse Elric":
-            inventory.set(0, new Item(4, 1, 1, 100, "Armored Fist", "Unique"));
-            player.setPlayerArmor(player.getPlayerArmor() + 1);
-            break;
+            switch(player.getUsername())
+            {
+                case "King Bach":
+                inventory.set(0, new Item(7, 2, 2, 20, "Comically-Large Spoon", "Legendary"));
+                break;
+                case "Alphonse Elric":
+                inventory.set(0, new Item(4, 1, 1, 100, "Armored Fist", "Unique"));
+                player.setPlayerArmor(player.getPlayerArmor() + 1);
+                break;
+            }
+            start = false;
         }
         String slot0 = inventory.get(0).getName();
         String slot1 = inventory.get(1).getName();
