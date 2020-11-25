@@ -106,4 +106,49 @@ public class Item
     {
         return rarity;
     }
+
+    public void damageDurability() 
+    {
+        durability --;
+    }
+
+    public boolean isBroken()
+    {
+        if(durability <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void checkAllDurability()
+    {
+        if(text.inventory.get(0).isBroken())
+        {
+            text.inventory.set(0, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+        if(text.inventory.get(1).isBroken())
+        {
+            text.inventory.set(1, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+        if(text.inventory.get(2).isBroken())
+        {
+            text.inventory.set(2, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+        if(text.inventory.get(3).isBroken())
+        {
+            text.inventory.set(3, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+        if(text.inventory.get(4).isBroken())
+        {
+            text.inventory.set(4, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+        if(text.inventory.get(5).isBroken())
+        {
+            text.inventory.set(5, new Item(1, 1, 0, 100, "Fist", "Common"));
+        }
+    }
 }

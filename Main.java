@@ -208,6 +208,10 @@ class text extends JFrame implements ActionListener
             case "King Bach":
             inventory.set(0, new Item(7, 2, 2, 20, "Comically-Large Spoon", "Legendary"));
             break;
+            case "Alphonse Elric":
+            inventory.set(0, new Item(4, 1, 1, 100, "Armored Fist", "Unique"));
+            player.setPlayerArmor(player.getPlayerArmor() + 1);
+            break;
         }
         String slot0 = inventory.get(0).getName();
         String slot1 = inventory.get(1).getName();

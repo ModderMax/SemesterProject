@@ -171,6 +171,16 @@ public class Player
         return playerArmor;
     }
 
+    public int getPlayerMaxHealth() 
+    {
+        return playerMaxHealth;
+    }
+
+    public int getPlayerStrength() 
+    {
+        return playerStrength;
+    }
+
     public void setExperience(int experience) 
     {
         this.experience = experience;

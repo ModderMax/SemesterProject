@@ -41,7 +41,7 @@ public class Entity
                             "+ " + Generator.held.getName() + ", " + Generator.held.getRarity(),
                             text.entity.getEntityName() + ": Dead",
                             Config.graveTexture());
-        text.player.checkLevelup();
+        text.player.setExperience(text.player.getExperience() + text.entity.getEntityExp());
     }
 
     public void affectEntityHealth(int amount)
@@ -79,18 +79,30 @@ public class Entity
 
     public static void attack()
     {
+        int x = text.entity.getEntityStrength() - text.player.getPlayerArmor();
         if(Generator.doesHit(0, false))
         {
-            int x = text.entity.getEntityStrength() - text.player.getPlayerArmor();
-            if(x >= 0)
+            if(x > 0)
             {
+                System.out.println("The " + text.entity.getEntityName() + " dealt " + x + " damage");
                 text.player.affectPlayerHealth(x);
+            }
+            else if(x == 0)
+            {
+                System.out.println("You blocked the " + text.entity.getEntityName() + "'s attack");
             }
             else
             {
+                System.out.println("You blocked the " + text.entity.getEntityName() + "'s attack");
+                System.out.println("The " + text.entity.getEntityName() + " took " + x + " damage as a recussion");
                 text.entity.affectEntityHealth(x * -1);
             }
         }
+        else
+        {
+            // System.out.println("The " + text.entity.getEntityName() + " missed you");
+        }
+        
         text.player.checkDeath();
         text.label0.setText(text.player.getUsername() + ": " + text.player.getHealthString());
     }
@@ -171,6 +183,28 @@ public class Entity
         this.entityExp = entityExp;
     }
 
+    public static void giantRat() // Level 1 Enemy
+    {
+        text.entity.setEntityName("Giant Rat");
+        text.entity.setEntityHealth(4);
+        text.entity.setEntityStrength(1);
+        text.entity.setEntityDexterity(1);
+        text.entity.setEntityAccuracy(1);
+        text.entity.setEntityArmor(0);
+        text.entity.setEntityExp(10);
+    }
+
+    public static void slightlyLessRat() // Level 1/2 Enemy
+    {
+        text.entity.setEntityName("Slightly Less Giant Rat");
+        text.entity.setEntityHealth(3);
+        text.entity.setEntityStrength(1);
+        text.entity.setEntityDexterity(1);
+        text.entity.setEntityAccuracy(1);
+        text.entity.setEntityArmor(0);
+        text.entity.setEntityExp(8);
+    }
+    
     public static void greenSlime() // Level 1 Enemy
     {
         text.entity.setEntityName("Green Slime");
@@ -182,6 +216,17 @@ public class Entity
         text.entity.setEntityExp(15);
     }
 
+    public static void phantasm() // Level 1 Enemy
+    {
+        text.entity.setEntityName("Phantasm");
+        text.entity.setEntityHealth(4);
+        text.entity.setEntityStrength(1);
+        text.entity.setEntityDexterity(1);
+        text.entity.setEntityAccuracy(0);
+        text.entity.setEntityArmor(-2);
+        text.entity.setEntityExp(15);
+    }
+
     public static void blueSlime() // Level 1 Enemy
     {
         text.entity.setEntityName("Blue Slime");
@@ -190,6 +235,7 @@ public class Entity
         text.entity.setEntityDexterity(-1);
         text.entity.setEntityAccuracy(0);
         text.entity.setEntityArmor(-1);
+        text.entity.setEntityExp(17);
     }
 
     public static void wolf() // Level 1 Enemy
@@ -200,6 +246,7 @@ public class Entity
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(2);
         text.entity.setEntityArmor(0);
+        text.entity.setEntityExp(17);
     }
 
     public static void goblinSkirmisher() // Level 2 Enemy
@@ -207,9 +254,10 @@ public class Entity
         text.entity.setEntityName("Goblin Skirmisher");
         text.entity.setEntityHealth(6);
         text.entity.setEntityStrength(2);
-        text.entity.setEntityDexterity(2);
+        text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(2);
-        text.entity.setEntityArmor(1);    
+        text.entity.setEntityArmor(1);
+        text.entity.setEntityExp(19);    
     }
 
     public static void goblinAmbusher() // Level 2 Enemy
@@ -217,19 +265,21 @@ public class Entity
         text.entity.setEntityName("Goblin Ambusher");
         text.entity.setEntityHealth(4);
         text.entity.setEntityStrength(3);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(0);
+        text.entity.setEntityExp(21);
+    }
+    
+    public static void phantom() // Level 2 Enemy
+    {
+        text.entity.setEntityName("Phantom");
+        text.entity.setEntityHealth(5);
+        text.entity.setEntityStrength(2);
         text.entity.setEntityDexterity(3);
         text.entity.setEntityAccuracy(2);
         text.entity.setEntityArmor(0);
-    }
-    
-    public static void wraith() // Level 5 Enemy
-    {
-        text.entity.setEntityName("Wraith");
-        text.entity.setEntityHealth(23);
-        text.entity.setEntityStrength(5);
-        text.entity.setEntityDexterity(3);
-        text.entity.setEntityAccuracy(2);
-        text.entity.setEntityArmor(3);
+        text.entity.setEntityExp(23);
     }
 
     public static void goblinChef() // Level 3 Enemy
@@ -240,26 +290,29 @@ public class Entity
         text.entity.setEntityDexterity(3);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(1);
+        text.entity.setEntityExp(26);
     }
 
-    public static void skeleton() // Level 2 Enemy
+    public static void skeletonArcher() // Level 3 Enemy
     {
-        text.entity.setEntityName("Skeleton");
+        text.entity.setEntityName("Skeleton Archer");
         text.entity.setEntityHealth(8);
         text.entity.setEntityStrength(2);
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(1);
+        text.entity.setEntityExp(27);
     }
 
     public static void skeletonSoldier() // Level 3 Enemy
     {
-        text.entity.setEntityName("Armored Skeleton");
+        text.entity.setEntityName("Skeleton Soldier");
         text.entity.setEntityHealth(8);
         text.entity.setEntityStrength(2);
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(3);
+        text.entity.setEntityExp(29);
     }
 
     public static void direWolf() // Level 3 Enemy
@@ -270,35 +323,140 @@ public class Entity
         text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(0);
+        text.entity.setEntityExp(31);
     }
 
-    public static void capraDemon()
+    public static void capraDemon() // Level 4 Enemy
     {
-        text.entity.setEntityName("Capra Demon"); // Level 4 Enemy
+        text.entity.setEntityName("Capra Demon"); 
         text.entity.setEntityHealth(9);
         text.entity.setEntityStrength(4);
-        text.entity.setEntityDexterity(3);
+        text.entity.setEntityDexterity(2);
         text.entity.setEntityAccuracy(2);
-        text.entity.setEntityArmor(2);
+        text.entity.setEntityArmor(1);
+        text.entity.setEntityExp(30);
     }
 
-    public static void battleCube()
+    public static void battleCube() // Level 4 Enemy
     {
-        text.entity.setEntityName("Battle Cube"); // Level 4 Enemy
+        text.entity.setEntityName("Battle Cube"); 
         text.entity.setEntityHealth(7);
         text.entity.setEntityStrength(2);
         text.entity.setEntityDexterity(2);
         text.entity.setEntityAccuracy(2);
         text.entity.setEntityArmor(4);
+        text.entity.setEntityExp(31);
     }
     
-    public static void haywireDroid()
+    public static void haywireDroid() // Level 4 Enemy
     {
-        text.entity.setEntityName("Haywire Droid"); // Level 4 Enemy
+        text.entity.setEntityName("Haywire Droid");
         text.entity.setEntityHealth(6);
-        text.entity.setEntityStrength(1);
-        text.entity.setEntityDexterity(3);
+        text.entity.setEntityStrength(2);
+        text.entity.setEntityDexterity(1);
         text.entity.setEntityAccuracy(3);
         text.entity.setEntityArmor(5);
+        text.entity.setEntityExp(31);
     }
+
+    public static void banshee() // Level 4 Enemy
+    {
+        text.entity.setEntityName("Banshee");
+        text.entity.setEntityHealth(5);
+        text.entity.setEntityStrength(7);
+        text.entity.setEntityDexterity(4);
+        text.entity.setEntityAccuracy(1);
+        text.entity.setEntityArmor(-1);
+        text.entity.setEntityExp(35);
+    }
+
+    public static void lich() // Level 4 Enemy
+    {
+        text.entity.setEntityName("Lich");
+        text.entity.setEntityHealth(6);
+        text.entity.setEntityStrength(6);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(2);
+        text.entity.setEntityExp(37);
+    }
+
+    public static void rougeKnight() // Level 5 Enemy
+    {
+        text.entity.setEntityName("Rouge Knight");
+        text.entity.setEntityHealth(18);
+        text.entity.setEntityStrength(4);
+        text.entity.setEntityDexterity(5);
+        text.entity.setEntityAccuracy(4);
+        text.entity.setEntityArmor(4);
+        text.entity.setEntityExp(42);
+    }
+
+    public static void babyDragon() // Level 5 Enemy
+    {
+        text.entity.setEntityName("Baby Dragon");
+        text.entity.setEntityHealth(21);
+        text.entity.setEntityStrength(4);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(3);
+        text.entity.setEntityExp(46);
+    }
+
+    public static void griffin() // Level 5 Enemy
+    {
+        text.entity.setEntityName("Griffin");
+        text.entity.setEntityHealth(21);
+        text.entity.setEntityStrength(6);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(2);
+        text.entity.setEntityExp(49);
+    }
+
+    public static void wraith() // Level 5 Enemy
+    {
+        text.entity.setEntityName("Wraith");
+        text.entity.setEntityHealth(20);
+        text.entity.setEntityStrength(8);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(1);
+        text.entity.setEntityExp(50);
+    }
+
+
+    public static void hydra() // Boss Enemy
+    {
+        text.entity.setEntityName("Hydra");
+        text.entity.setEntityHealth(48);
+        text.entity.setEntityStrength(8);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(10);
+        text.entity.setEntityExp(100);
+    }
+
+    public static void cerberus() // Boss Enemy
+    {
+        text.entity.setEntityName("Cerberus");
+        text.entity.setEntityHealth(28);
+        text.entity.setEntityStrength(16);
+        text.entity.setEntityDexterity(2);
+        text.entity.setEntityAccuracy(2);
+        text.entity.setEntityArmor(4);
+        text.entity.setEntityExp(100);
+    }
+
+    public static void medusa() // Boss Enemy
+    {
+        text.entity.setEntityName("Medusa");
+        text.entity.setEntityHealth(24);
+        text.entity.setEntityStrength(8);
+        text.entity.setEntityDexterity(9);
+        text.entity.setEntityAccuracy(8);
+        text.entity.setEntityArmor(3);
+        text.entity.setEntityExp(100);
+    }
+
 }

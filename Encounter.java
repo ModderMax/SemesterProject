@@ -41,7 +41,23 @@ public class Encounter
 
     public static void ed()
     {
-
+        Event.currentEventId = 2;
+        ChangeUI.enableAll(true, true, false, false, false, false, false, true, true, true);
+        ChangeUI.locationButton(120, 30, 120, 520,
+                                120, 30, 280, 520, 
+                                120, 30, 120, 600, 
+                                120, 30, 280, 600, 
+                                text.button4.getPreferredSize().width, text.button4.getPreferredSize().height, 100, 10, 
+                                text.button5.getPreferredSize().width, text.button5.getPreferredSize().height, 100, 10);
+        ChangeUI.locationField(500, text.label0.getPreferredSize().height, 40, 20,
+                               500, text.label1.getPreferredSize().height + 60, 40, 410,
+                               400, text.label2.getPreferredSize().height + 200, 40, -40,
+                               text.text0.getPreferredSize().width, text.text0.getPreferredSize().height, 190, 420);
+        ChangeUI.textAll("Ok", "No", "x", "x", "x", "x", "x", "Edward Elric",
+                            "<html>Hey, you.<br>Do you know about transmutation?<br>It works according to the laws of equivalent exchange.<br>" + 
+                            "Here, in exchange for part of your life, I can make you stronger.<br>Do you accept?", Config.charSprite());
+                            
+                            
     }
 
     public static void sans()

@@ -12,10 +12,12 @@ public class Generator
         x = x + 4;
         if(x > randomInt)
         {
+            System.out.println("Successfully ran away");
             return true;
         }
         else
         {
+            System.out.println("Failed to run away");
             return false;
         }
     }
@@ -29,10 +31,12 @@ public class Generator
             int y = 6 + x + itemToHit;
             if(y > randomInt)
             {
+                System.out.println("You hit the " + text.entity.getEntityName());
                 return true;
             }
             else
             {
+                System.out.println("You missed the " + text.entity.getEntityName());
                 return false;
             }
         }
@@ -43,10 +47,12 @@ public class Generator
             int y = 6 + x;
             if(y > randomInt)
             {
+                System.out.println("The " + text.entity.getEntityName() + " hit you");
                 return true;
             }
             else
             {
+                System.out.println("The " + text.entity.getEntityName() + " missed you");
                 return false;
             }
         }
@@ -61,13 +67,15 @@ public class Generator
     public static void randomRarity()
     {
         int randomInt = rand.nextInt(105);
-        if(randomInt <= 9)
+        int bonus = text.entity.getEntityExp() / 10;
+        randomInt = randomInt - bonus;
+        if(randomInt <= 8)
         {
             randomLegendary();
         }
         else
         {
-            if(randomInt <= 25)
+            if(randomInt <= 20)
             {
                 randomUnique();
             }
@@ -157,20 +165,16 @@ public class Generator
     public static void randomEvent()
     {
         Event.currentProgress ++;
-        randomBattle();
-        /*int randomInt = rand.nextInt(5);
-        if(randomInt == 0)
+        randomEncounter();
+        int randomInt = rand.nextInt(5);
+        if(randomInt > 0)
         {
-            randomTrial();
+            randomBattle();
         }
-        if(randomInt == 1 || randomInt == 2)
+        else
         {
             randomEncounter();
         }
-        if(randomInt > 2)
-        {
-            randomBattle();
-        } */
     }
 
     public static void randomTrial()
@@ -180,7 +184,7 @@ public class Generator
 
     public static void randomEncounter()
     {
-
+        Encounter.ed();
     }
 
     public static void randomBattle()
@@ -201,6 +205,15 @@ public class Generator
                     case 2:
                         Entity.wolf();
                     break;
+                    case 3:
+                        Entity.giantRat();
+                    break;
+                    case 4:
+                        Entity.slightlyLessRat();
+                    break;
+                    case 5:
+                        Entity.phantasm();
+                    break;
                 }
             break;
             case 1:
@@ -214,8 +227,13 @@ public class Generator
                         Entity.goblinAmbusher();
                     break;
                     case 2:
-                        Entity.skeleton();
+                        Entity.skeletonArcher();
                     break;
+                    case 3:
+                        Entity.phantom();
+                    break;
+                    case 4:
+
                 }
             break;
             case 2:
@@ -231,6 +249,10 @@ public class Generator
                     case 2:
                         Entity.direWolf();
                     break;
+                    case 3:
+                        Entity.skeletonArcher();
+                    break;
+
                 }
             break;
             case 3:
@@ -246,6 +268,12 @@ public class Generator
                     case 2:
                         Entity.haywireDroid();
                     break;
+                    case 3:
+                        Entity.banshee();
+                    break;
+                    case 4:
+                        Entity.lich();
+                    break;
                 }
             break;
             case 4:
@@ -254,6 +282,15 @@ public class Generator
                 {
                     case 0:
                         Entity.wraith();
+                    break;
+                    case 1:
+                        Entity.rougeKnight();
+                    break;
+                    case 2:
+                        Entity.babyDragon();
+                    break;
+                    case 3:
+                        Entity.griffin();
                     break;
                 }
             break;
@@ -267,6 +304,7 @@ public class Generator
                 }
             break;
         }
+        System.out.println("A " + text.entity.getEntityName() + " has appeared");
         Encounter.battle();
     }
 }
