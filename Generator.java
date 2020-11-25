@@ -171,7 +171,7 @@ public class Generator
 
     public static void randomCommon()
     {
-        int randomInt = rand.nextInt(2);
+        int randomInt = rand.nextInt(3);
 
         switch(randomInt)
         {
@@ -180,6 +180,9 @@ public class Generator
             break;
             case 1:
             Item.fryingPan();
+            break;
+            case 2: 
+            Item.broom();
             break;
         }
     }
