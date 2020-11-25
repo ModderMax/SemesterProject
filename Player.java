@@ -1,17 +1,29 @@
 /**
  * ---------------------------------------------------------------------------
- * File name: Main.java
+ * File name: Entity.java
  * Project name: Semester Project - Text Based RPG
  * ---------------------------------------------------------------------------
- * Creator's name and email: 
- * Course:  CSCI 1250
+ * Creator's name and email: Daniel Campbell, campbelldb@etdu.edu
+ * Creator's name and email: Maxwell Brown, max@nendal.com
+ * Course:  CSCI-1250
  * Creation Date: 11/7/2020 
+ * Last updated: 11/23/2020
  * ---------------------------------------------------------------------------
 */
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
+/**
+ * Class for determining the String and integers of statistics 
+ * surrounding the users player character, determining
+ * both input and output
+ *
+ * Date created: 11/7/2020
+ * 
+ * @author Daniel Campbell
+ * @author Maxwell Brown
+ */
 public class Player 
 {
     ArrayList<Item> inventory;
